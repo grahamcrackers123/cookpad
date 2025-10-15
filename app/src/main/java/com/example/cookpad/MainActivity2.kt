@@ -32,15 +32,15 @@ class MainActivity2 : AppCompatActivity() {
         }
 
 
-        val firstFragment = FirstFragment()
+        val recipesFragment = RecipesFragment()
         val secondFragment = SecondFragment()
         val shoppingListFragment = ShoppingListFragment()
 
-        setCurrentFragment(firstFragment)
+        setCurrentFragment(recipesFragment)
 
         bottomNav.setOnItemSelectedListener {
             when(it.itemId) {
-                R.id.miRecipe -> setCurrentFragment(firstFragment)
+                R.id.miRecipe -> setCurrentFragment(recipesFragment)
                 R.id.miCategories -> setCurrentFragment(secondFragment)
                 R.id.miShoppingList -> setCurrentFragment(shoppingListFragment)
             }
