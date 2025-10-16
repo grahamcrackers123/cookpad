@@ -1,5 +1,6 @@
 package com.example.cookpad
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -8,12 +9,16 @@ import com.google.android.material.search.SearchBar
 import com.google.android.material.search.SearchView
 import android.widget.Toast
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-class RecipesFragment : Fragment(R.layout.fragment_recipes) {
+class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
 
     companion object {
         const val RECIPE_KEY = "recipe_detail_key"
+        const val FORM_MODE_KEY = "form_mode"
+        const val MODE_NEW_RECIPE = "new"
+        const val MODE_EDIT_RECIPE = "edit"
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -135,7 +140,7 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes) {
             }
 
             // destination fragment
-            val recipeDetailFragment = RecipeDetailFragment()
+            val recipeDetailFragment = RecipeFragment()
             recipeDetailFragment.arguments = bundle // Attach the data
 
             // fragment transaction
@@ -148,6 +153,26 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes) {
 
         recyclerView.adapter = adapter
 
+    }
+
+    override fun showFab(): Boolean {
+        return true
+    }
+
+    override fun setupFab(fab: FloatingActionButton) {
+        fab.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString(FORM_MODE_KEY, MODE_NEW_RECIPE)
+            }
+
+            val recipeFormFragment = RecipeFormFragment()
+            recipeFormFragment.arguments = bundle
+
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, recipeFormFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 
 }

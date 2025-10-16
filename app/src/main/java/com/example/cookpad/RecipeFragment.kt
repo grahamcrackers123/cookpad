@@ -8,42 +8,38 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.Toolbar
-import com.bumptech.glide.Glide // For image loading
+import com.bumptech.glide.Glide
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class RecipeDetailFragment : Fragment(R.layout.fragment_recipe) {
+class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Retrieve the Recipe object from arguments
         val recipeDetail = arguments?.getParcelable<Recipe>(RecipesFragment.RECIPE_KEY)
 
-        // Check if data was successfully passed
+        // check if data passed
         if (recipeDetail != null) {
 
-            // --- Existing View Bindings (use RecipeDetail's properties) ---
             val toolbar: Toolbar = view.findViewById(R.id.toolbarRecipeDetail)
             val imageView: ImageView = view.findViewById(R.id.recipeDetailImage)
             val titleTextView: TextView = view.findViewById(R.id.recipeDetailTitle)
             val ingredientsContainer: LinearLayout = view.findViewById(R.id.ingredientsContainer)
             val stepsContainer: LinearLayout = view.findViewById(R.id.stepsContainer)
 
-            // 2. Populate views with the received data
             titleTextView.text = recipeDetail.title
-            toolbar.title = recipeDetail.title // Set the toolbar title
+            toolbar.title = recipeDetail.title
             Glide.with(this).load(recipeDetail.image).into(imageView)
 
-            // Populate the lists
             populateList(ingredientsContainer, recipeDetail.ingredients, isNumbered = false)
             populateList(stepsContainer, recipeDetail.steps, isNumbered = true)
 
-            // 3. Setup Toolbar Actions (using the received data)
             setupToolbar(toolbar)
 
         } else {
-            // Handle case where no recipe data was passed (e.g., show error, pop back)
             Toast.makeText(requireContext(), "Error: Recipe data missing.", Toast.LENGTH_LONG).show()
         }
+
     }
 
     private fun setupToolbar(toolbar: Toolbar) {
@@ -59,7 +55,32 @@ class RecipeDetailFragment : Fragment(R.layout.fragment_recipe) {
                     true
                 }
                 R.id.editAction -> {
-                    Toast.makeText(requireContext(), "Editing Recipe", Toast.LENGTH_SHORT).show()
+                    // --- REDIRECT TO FORM WITH RECIPE DATA ---
+
+                    // 1. Get the current Recipe object (it was passed to this fragment)
+                    val currentRecipe = arguments?.getParcelable<Recipe>(RecipesFragment.RECIPE_KEY)
+
+                    if (currentRecipe != null) {
+                        // 2. Create the Bundle and pass the existing Recipe
+                        val bundle = Bundle().apply {
+                            // Pass the entire Recipe object for editing
+                            putParcelable(RecipesFragment.RECIPE_KEY, currentRecipe)
+
+                            // Optional: Pass an explicit mode indicator
+                            putString(RecipesFragment.FORM_MODE_KEY, RecipesFragment.MODE_EDIT_RECIPE)
+                        }
+
+                        // 3. Perform the Fragment Transaction
+                        val recipeFormFragment = RecipeFormFragment()
+                        recipeFormFragment.arguments = bundle
+
+                        parentFragmentManager.beginTransaction()
+                            .replace(R.id.flFragment, recipeFormFragment)
+                            .addToBackStack(null)
+                            .commit()
+                    } else {
+                        Toast.makeText(requireContext(), "Error: Cannot find recipe data to edit.", Toast.LENGTH_SHORT).show()
+                    }
                     true
                 }
                 else -> false
@@ -95,5 +116,13 @@ class RecipeDetailFragment : Fragment(R.layout.fragment_recipe) {
 
     private fun Int.dpToPx(): Int {
         return (this * resources.displayMetrics.density).toInt()
+    }
+
+    override fun setupFab(fab: FloatingActionButton) {
+        fab.setOnClickListener(null)
+    }
+
+    override fun showFab(): Boolean {
+        return false
     }
 }

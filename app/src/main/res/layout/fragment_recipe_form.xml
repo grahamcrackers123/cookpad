@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondFragment"
+    android:gravity="center_horizontal">
+
+    <!-- top app bar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/topAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:title="Add Recipe"
+        app:titleTextColor="@color/white"
+        android:background="@color/orange"
+        />
+
+    <!--insert image button-->
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:text="Insert image"
+        app:icon="@drawable/ic_image"
+        app:iconGravity="textStart"
+        app:iconTint="#52452A"
+        android:textColor="#52452A"
+        android:backgroundTint="#F2DDB8"
+        android:textAllCaps="false"
+        android:checkable="true"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="4dp"
+        />
+
+    <!--Name textfield-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
+        android:id="@+id/nameTextField"
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="16dp"
+        android:hint="Name"
+        app:boxBackgroundColor="#EBE1D4"
+        android:textColorHint="#4D4639"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Category textfield-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
+        android:id="@+id/categoryTextField"
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:hint="Category"
+        android:layout_marginBottom="16dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginBottom="8dp"
+        >
+
+        <!--Ingredients textfield-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="?attr/textInputFilledStyle"
+            android:id="@+id/ingredientTextField"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="60"
+            android:hint="Ingredient"
+            android:layout_marginEnd="4dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!--Measurement textfield-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="?attr/textInputFilledStyle"
+            android:id="@+id/measurementTextField"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="40"
+            android:hint="Measurement"
+            android:layout_marginStart="4dp"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+
+
+    <!--Add another ingredient button-->
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:text="Add ingredient"
+        app:icon="@drawable/ic_circle_add"
+        app:iconGravity="textStart"
+        app:iconTint="#52452A"
+        android:textColor="#52452A"
+        android:backgroundTint="#F2DDB8"
+        android:textAllCaps="false"
+        android:checkable="true"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="4dp"
+        />
+
+    <!--Steps textfield-->
+    <com.google.android.material.textfield.TextInputLayout
+        style="?attr/textInputFilledStyle"
+        android:id="@+id/stepsTextField"
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:hint="Step"
+        android:layout_marginBottom="8dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--Add another step button-->
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:text="Add step"
+        app:icon="@drawable/ic_circle_add"
+        app:iconGravity="textStart"
+        app:iconTint="#52452A"
+        android:textColor="#52452A"
+        android:backgroundTint="#F2DDB8"
+        android:textAllCaps="false"
+        android:checkable="true"
+        android:layout_marginBottom="16dp"
+        app:cornerRadius="4dp"
+        />
+
+
+    <LinearLayout
+        android:layout_width="313dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        >
+
+        <!--save button-->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="50"
+            android:text="Save"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple"
+            android:textAllCaps="false"
+            app:cornerRadius="4dp"
+            android:layout_marginEnd="4dp"
+            />
+
+        <!--cancel button-->
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_weight="50"
+            android:text="Cancel"
+            android:textColor="@color/white"
+            android:backgroundTint="@color/purple"
+            android:textAllCaps="false"
+            app:cornerRadius="4dp"
+            android:layout_marginStart="4dp"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
