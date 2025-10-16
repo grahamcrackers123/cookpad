@@ -31,7 +31,6 @@ class MainActivity2 : AppCompatActivity() {
             insets
         }
 
-
         val recipesFragment = RecipesFragment()
         val secondFragment = SecondFragment()
         val shoppingListFragment = ShoppingListFragment()

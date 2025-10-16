@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.cookpad.R
-import com.example.cookpad.Recipe
 
 class RecipeAdapter(
     private val recipes: List<Recipe>,
@@ -18,7 +16,7 @@ class RecipeAdapter(
         private val imageView: ImageView = itemView.findViewById(R.id.recipeImage)
 
         fun bind(recipe: Recipe) {
-            nameTextView.text = recipe.name
+            nameTextView.text = recipe.title
 
             imageView.setImageResource(recipe.image)
 

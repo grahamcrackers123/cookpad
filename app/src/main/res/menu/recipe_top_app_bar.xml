@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/addToListAction"
+        android:icon="@drawable/ic_add_to_list"
+        android:title="Add to Shopping List"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/editAction"
+        android:icon="@drawable/ic_edit"
+        android:title="Edit Recipe"
+        android:iconTint="@color/white"
+        app:showAsAction="ifRoom" />
+</menu>
