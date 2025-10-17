@@ -13,7 +13,7 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
     AddItemDialog.AddItemListener {
 
     // Use a mutable list and save the adapter instance
-    private val shoppingList = mutableListOf<Ingredient>(
+    private val shoppingList = mutableListOf(
         Ingredient(name = "Flour", amount = "3 cups"),
         Ingredient(name = "Oil", amount = "3 cups"),
         Ingredient(name = "Butter", amount = "3 cups"),
@@ -23,19 +23,15 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
     )
     private lateinit var shoppingListAdapter: ShoppingListAdapter
 
-    // You'll need your Ingredient data class and ShoppingListAdapter implementation here or imported
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.shoppingListRecyclerView)
 
-        // Initialize adapter with the mutable list
         shoppingListAdapter = ShoppingListAdapter(shoppingList)
         recyclerView.adapter = shoppingListAdapter
     }
 
-    // --- FabLifecycleController Implementation ---
     override fun showFab(): Boolean {
         return true
     }
@@ -52,17 +48,12 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
         }
     }
 
-    // --- AddItemListener Implementation ---
     override fun onIngredientAdded(ingredient: Ingredient) {
-        // This method is called by the dialog when the user clicks 'Save'
 
-        // 1. Add the new item to the data list
         shoppingList.add(ingredient)
 
-        // 2. Notify the adapter to refresh the RecyclerView
         shoppingListAdapter.notifyItemInserted(shoppingList.size - 1)
 
-        // Optional: Scroll to the new item
         view?.findViewById<RecyclerView>(R.id.shoppingListRecyclerView)?.scrollToPosition(shoppingList.size - 1)
 
         Toast.makeText(requireContext(), "${ingredient.name} added!", Toast.LENGTH_SHORT).show()
