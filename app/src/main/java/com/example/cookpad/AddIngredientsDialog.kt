@@ -11,9 +11,6 @@ import androidx.recyclerview.widget.RecyclerView
 class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
 
     private lateinit var initialRecipeIngredients: List<Ingredient>
-    // master data
-//    private val availableList: MutableList<Ingredient> = getInitialAvailableIngredients().toMutableList()
-//    private val addedList: MutableList<Ingredient> = mutableListOf()
 
     private lateinit var availableAdapter: IngredientTransferAdapter
     private lateinit var addedAdapter: IngredientTransferAdapter

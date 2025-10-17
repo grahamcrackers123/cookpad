@@ -32,7 +32,7 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         val recipesFragment = RecipesFragment()
-        val secondFragment = SecondFragment()
+        val secondFragment = CategoriesFragment()
         val shoppingListFragment = ShoppingListFragment()
 
         setCurrentFragment(recipesFragment)

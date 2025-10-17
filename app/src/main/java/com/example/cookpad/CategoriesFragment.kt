@@ -5,8 +5,9 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class SecondFragment : Fragment(R.layout.fragment_categories) {
+class CategoriesFragment : Fragment(R.layout.fragment_categories), FabController {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,6 +26,16 @@ class SecondFragment : Fragment(R.layout.fragment_categories) {
         }
 
         recyclerView.adapter = adapter
+    }
+
+    override fun showFab(): Boolean {
+        return true
+    }
+
+    override fun setupFab(fab: FloatingActionButton) {
+        fab.setOnClickListener {
+
+        }
     }
 
 }
