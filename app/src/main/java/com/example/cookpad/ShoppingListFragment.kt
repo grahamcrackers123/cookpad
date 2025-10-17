@@ -14,12 +14,12 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list) {
         val recyclerView = view.findViewById<RecyclerView>(R.id.shoppingListRecyclerView)
 
         val shoppingList = listOf(
-            IngredientItem("Flour", "3 cups"),
-            IngredientItem("Butter", "3 cups"),
-            IngredientItem("Eggs", "3 cups"),
-            IngredientItem("Milk", "3 cups"),
-            IngredientItem("Oil", "3 cups", true),
-            IngredientItem("Flour", "3 cups")
+            Ingredient(name = "Flour", amount = "3 cups"),
+            Ingredient(name = "Oil", amount = "3 cups"),
+            Ingredient(name = "Butter", amount = "3 cups"),
+            Ingredient(name = "Eggs", amount = "3 cups"),
+            Ingredient(name = "Milk", amount = "3 cups", isChecked = true),
+            Ingredient(name = "Oil", amount = "3 cups"),
         )
 
         val adapter = ShoppingListAdapter(shoppingList)

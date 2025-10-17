@@ -4,24 +4,24 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cookpad.Ingredient
 import com.google.android.material.checkbox.MaterialCheckBox
 import com.example.cookpad.R // Make sure this is your app's package
-import com.example.cookpad.IngredientItem
 
-class ShoppingListAdapter(private val items: List<IngredientItem>) :
-    RecyclerView.Adapter<ShoppingListAdapter.IngredientItemViewHolder>() {
+class ShoppingListAdapter(private val items: List<Ingredient>) :
+    RecyclerView.Adapter<ShoppingListAdapter.IngredientViewHolder>() {
 
-    inner class IngredientItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class IngredientViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val nameCheckbox: MaterialCheckBox = itemView.findViewById(R.id.ingredientCheckbox)
         private val quantityTextView: TextView = itemView.findViewById(R.id.ingredientMeasurement)
 
-        fun bind(item: IngredientItem) {
+        fun bind(item: Ingredient) {
             // set name and state of checkbox
             nameCheckbox.text = item.name
             nameCheckbox.isChecked = item.isChecked
 
             // set measurement
-            quantityTextView.text = item.measurement
+            quantityTextView.text = item.amount
 
             // listener for when checkbox is checked/unchecked
             nameCheckbox.setOnCheckedChangeListener { _, isChecked ->
@@ -30,13 +30,13 @@ class ShoppingListAdapter(private val items: List<IngredientItem>) :
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientItemViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredientViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.shopping_list_item, parent, false)
-        return IngredientItemViewHolder(view)
+        return IngredientViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: IngredientItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: IngredientViewHolder, position: Int) {
         holder.bind(items[position])
     }
 

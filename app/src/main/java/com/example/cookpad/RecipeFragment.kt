@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.appcompat.widget.Toolbar
 import com.bumptech.glide.Glide
+import com.example.cookpad.RecipesFragment.Companion.FORM_MODE_KEY
+import com.example.cookpad.RecipesFragment.Companion.MODE_NEW_RECIPE
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
@@ -31,7 +33,10 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
             toolbar.title = recipeDetail.title
             Glide.with(this).load(recipeDetail.image).into(imageView)
 
-            populateList(ingredientsContainer, recipeDetail.ingredients, isNumbered = false)
+            val ingredientsMeasurementsCombo: List<String> = recipeDetail.ingredients.zip(recipeDetail.measurements) { ingredient, measurement -> "$measurement $ingredient"
+            }
+
+            populateList(ingredientsContainer, ingredientsMeasurementsCombo, isNumbered = false)
             populateList(stepsContainer, recipeDetail.steps, isNumbered = true)
 
             setupToolbar(toolbar)
@@ -48,40 +53,51 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
             Toast.makeText(requireContext(), "Going back...", Toast.LENGTH_SHORT).show()
         }
 
+        val recipeDetail = arguments?.getParcelable<Recipe>(RecipesFragment.RECIPE_KEY)
+
         toolbar.setOnMenuItemClickListener { item ->
             when (item.itemId) {
                 R.id.addToListAction -> {
-                    Toast.makeText(requireContext(), "Added to Shopping List", Toast.LENGTH_SHORT).show()
-                    true
+                    if (recipeDetail != null) {
+                        // 1. Create the dialog instance
+                        val dialog = AddIngredientsDialog()
+
+                        // 2. Prepare the data to pass to the dialog
+                        val ingredientData = recipeDetail.ingredients.zip(recipeDetail.measurements)
+                            .mapIndexed { index, pair ->
+                                Ingredient(
+                                    name = pair.first,
+                                    amount = pair.second
+                                )
+                            }
+
+                        // 3. Pass the data and show the dialog
+                        // NOTE: The AddIngredientsDialog must have a method to receive this list.
+                        dialog.setAvailableIngredients(ingredientData)
+
+                        dialog.show(parentFragmentManager, "AddIngredientsDialogTag")
+
+                    } else {
+                        Toast.makeText(requireContext(), "Error: No recipe data to add.", Toast.LENGTH_SHORT).show()
+                    }
+                    return@setOnMenuItemClickListener true
+
                 }
                 R.id.editAction -> {
-                    // --- REDIRECT TO FORM WITH RECIPE DATA ---
-
-                    // 1. Get the current Recipe object (it was passed to this fragment)
-                    val currentRecipe = arguments?.getParcelable<Recipe>(RecipesFragment.RECIPE_KEY)
-
-                    if (currentRecipe != null) {
-                        // 2. Create the Bundle and pass the existing Recipe
-                        val bundle = Bundle().apply {
-                            // Pass the entire Recipe object for editing
-                            putParcelable(RecipesFragment.RECIPE_KEY, currentRecipe)
-
-                            // Optional: Pass an explicit mode indicator
-                            putString(RecipesFragment.FORM_MODE_KEY, RecipesFragment.MODE_EDIT_RECIPE)
-                        }
-
-                        // 3. Perform the Fragment Transaction
-                        val recipeFormFragment = RecipeFormFragment()
-                        recipeFormFragment.arguments = bundle
-
-                        parentFragmentManager.beginTransaction()
-                            .replace(R.id.flFragment, recipeFormFragment)
-                            .addToBackStack(null)
-                            .commit()
-                    } else {
-                        Toast.makeText(requireContext(), "Error: Cannot find recipe data to edit.", Toast.LENGTH_SHORT).show()
+                    val bundle = Bundle().apply {
+                        putString(FORM_MODE_KEY, MODE_NEW_RECIPE)
                     }
-                    true
+
+                    val recipeFormFragment = RecipeFormFragment()
+                    recipeFormFragment.arguments = bundle
+
+                    parentFragmentManager.beginTransaction()
+                        .replace(R.id.flFragment, recipeFormFragment)
+                        .addToBackStack(null)
+                        .commit()
+
+                    Toast.makeText(requireContext(), "Editing Recipe", Toast.LENGTH_SHORT).show()
+                    return@setOnMenuItemClickListener true
                 }
                 else -> false
             }
