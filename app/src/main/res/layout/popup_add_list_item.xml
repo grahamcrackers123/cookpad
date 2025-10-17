@@ -17,7 +17,7 @@
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ingredientNameEditText"
+        android:id="@+id/ingredientNameInputLayout"
         style="?attr/textInputFilledStyle"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -27,6 +27,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ingredientNameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />
@@ -42,7 +43,7 @@
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/ingredientAmountEditText"
+        android:id="@+id/ingredientAmountInputLayout"
         style="?attr/textInputFilledStyle"
         android:layout_width="match_parent"
         android:layout_height="56dp"
@@ -52,6 +53,7 @@
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ingredientAmountEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             />

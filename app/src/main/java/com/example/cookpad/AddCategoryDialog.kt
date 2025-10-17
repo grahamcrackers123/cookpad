@@ -33,7 +33,7 @@ class AddCategoryDialog : DialogFragment() {
 
         // --- 1. View Bindings ---
         val categoryNameEditText = dialogView.findViewById<TextInputEditText>(R.id.categoryNameEditText)
-        val saveButton = dialogView.findViewById<TextView>(R.id.saveCategoryButton)
+        val saveButton = dialogView.findViewById<Button>(R.id.saveCategoryButton)
         val cancelButton = dialogView.findViewById<Button>(R.id.cancelCategoryButton)
 
         // --- 2. Setup Click Listeners ---

@@ -53,7 +53,7 @@ class AddItemDialog : DialogFragment() {
         builder.setView(dialogView)
 
         val dialog = builder.create()
-        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent) // To respect your rounded corners
+        dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         return dialog
     }
