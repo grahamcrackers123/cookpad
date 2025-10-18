@@ -65,6 +65,7 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
                     "Next add the milk and whisk  out any clumps from the roux until you have a smooth consistency. Lower  the heat and bring to a simmer.",
                     "Add the parmigiana cheese,  black pepper and salt to taste. Keep stirring until the sauce starts to  thicken. Add in the cooked pasta and serve while its hot."
                 ),
+                categories = listOf("Dinner", "Pasta")
             ),
             Recipe(
                 title = "Adobo",

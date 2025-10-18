@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fitsSystemWindows="true"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        >
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarRecipeDetail"
@@ -26,6 +26,7 @@
             app:titleTextColor="@color/white"
             app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:navigationIconTint="@color/white"
+            style="@style/WhiteIconToolbar"
             />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -46,13 +47,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:padding="16dp"
-                android:gravity="center"
+                android:gravity="top"
                 android:weightSum="100">
 
                 <ImageView
                     android:id="@+id/recipeDetailImage"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
+                    android:layout_width="0dp"
+                    android:layout_height="150dp"
                     android:scaleType="centerCrop"
                     android:contentDescription="Recipe image"
                     android:layout_marginEnd="16dp"
@@ -62,13 +63,29 @@
                     android:clipToOutline="true"
                     />
 
-                <TextView
-                    android:id="@+id/recipeDetailTitle"
-                    android:layout_width="wrap_content"
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?attr/textAppearanceHeadlineSmall"
-                    android:layout_weight="50"
-                    tools:text="Spaghetti Carbonara" />
+                    android:orientation="vertical"
+                    android:layout_weight="50">
+
+                    <TextView
+                        android:id="@+id/recipeDetailTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                        tools:text="Spaghetti Carbonara"
+                        android:textSize="32dp"/>
+
+                    <TextView
+                        android:id="@+id/recipeDetailCategory"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:layout_marginTop="8dp"
+                        tools:text="Dinner" />
+
+                </LinearLayout>
             </LinearLayout>
 
             <TextView

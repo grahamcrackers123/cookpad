@@ -7,4 +7,12 @@
     
     <style name="Theme.CookPad" parent="Base.Theme.CookPad"/>
 
+    <style name="WhiteIconToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.WhiteIconToolbar</item>
+    </style>
+
+    <style name="ThemeOverlay.WhiteIconToolbar" parent="">
+        <item name="iconTint">@color/white</item>
+    </style>
+
 </resources>

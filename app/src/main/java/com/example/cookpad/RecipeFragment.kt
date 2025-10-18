@@ -71,8 +71,6 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
                                 )
                             }
 
-                        // 3. Pass the data and show the dialog
-                        // NOTE: The AddIngredientsDialog must have a method to receive this list.
                         dialog.setAvailableIngredients(ingredientData)
 
                         dialog.show(parentFragmentManager, "AddIngredientsDialogTag")
