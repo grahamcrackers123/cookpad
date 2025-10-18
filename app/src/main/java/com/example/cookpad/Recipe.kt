@@ -11,5 +11,6 @@ data class Recipe(
     @DrawableRes val image: Int,
     val ingredients: List<String>,
     val measurements: List<String>,
-    val steps: List<String>
+    val steps: List<String>,
+    val categories: List<String> = emptyList()
 ) : Parcelable
