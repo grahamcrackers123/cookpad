@@ -12,15 +12,6 @@
     android:gravity="center"
     >
 
-<!--    <ImageView-->
-<!--        android:id="@+id/appLogo"-->
-<!--        android:layout_width="115dp"-->
-<!--        android:layout_height="115dp"-->
-<!--        android:src="@drawable/app_logo"-->
-<!--        android:contentDescription="CookPad app logo"-->
-<!--        android:layout_marginBottom="4dp"-->
-<!--        />-->
-
     <TextView
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
