@@ -77,7 +77,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
         }
     }
 
-    // Placeholder for getting a category image
+
     private fun getCategoryIcon(name: String): Int {
         return R.drawable.ic_image
     }
