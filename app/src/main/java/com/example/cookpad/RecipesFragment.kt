@@ -23,14 +23,14 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
         super.onViewCreated(view, savedInstanceState)
 
         val searchBar = view.findViewById<SearchBar>(R.id.searchbarRecipe)
-        val searchView = view.findViewById<SearchView>(R.id.searchviewRecipe)
+//        val searchView = view.findViewById<SearchView>(R.id.searchviewRecipe)
 
         searchBar.setOnMenuItemClickListener {
             true
         }
-        searchView.setOnClickListener {
-            searchView.show()
-        }
+//        searchView.setOnClickListener {
+//            searchView.show()
+//        }
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
 

@@ -21,7 +21,7 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
 
     private var displayedCategories: MutableList<Category> = mutableListOf()
 
-    private val baseCategoryNames = listOf("Snack", "Meat", "Pasta", "Chicken", "Vegetarian", "Dessert")
+    private val baseCategoryNames = listOf("Snack", "Meat", "Pasta", "Chicken", "Salad")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,7 +79,15 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
 
 
     private fun getCategoryIcon(name: String): Int {
-        return R.drawable.ic_image
+        when(name) {
+            "Snack" -> return R.drawable.chocolate_chip_cookies
+            "Meat" -> return R.drawable.chicken_pork_adobo
+            "Pasta" -> return R.drawable.garlic_pasta
+            "Salad" -> return R.drawable.avocado_salad
+            "Chicken" -> return R.drawable.chicken_pork_adobo
+            else -> return R.drawable.ic_image
+
+        }
     }
 
     // Placeholder for all recipes data
