@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.google.android.material.appbar.MaterialToolbar
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.search.SearchBar
 import com.google.android.material.search.SearchView
-import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-
 
 class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
 
@@ -22,20 +22,30 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val searchBar = view.findViewById<SearchBar>(R.id.searchbarRecipe)
-//        val searchView = view.findViewById<SearchView>(R.id.searchviewRecipe)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.recipesToolbar)
+        val searchBar = view.findViewById<SearchBar>(R.id.recipesSearchBar)
+        val searchView = view.findViewById<SearchView>(R.id.recipesSearchView)
 
-        searchBar.setOnMenuItemClickListener {
-            true
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.itemId == R.id.action_search) {
+                 toolbar.visibility = View.GONE
+                searchView.show()
+                true
+            } else {
+                false
+            }
         }
-//        searchView.setOnClickListener {
-//            searchView.show()
-//        }
+
+        searchView.addTransitionListener { _, _, newState ->
+            if (newState == SearchView.TransitionState.HIDDEN || newState == SearchView.TransitionState.HIDING) {
+                toolbar.visibility = View.VISIBLE
+            }
+        }
 
         val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
-
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
+        // Your existing recipe list and adapter setup
         val recipeList = listOf(
             Recipe(
                 title = "Truffle Pasta",
@@ -67,114 +77,24 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
                 ),
                 categories = listOf("Dinner", "Pasta")
             ),
-            Recipe(
-                title = "Adobo",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Carbonara",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Caldereta",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Pancake",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Adobo",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Carbonara",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Caldereta",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Pancake",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Adobo",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Carbonara",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Caldereta",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            ),
-            Recipe(
-                title = "Pancake",
-                image = R.drawable.avocado_salad,
-                ingredients = listOf(""),
-                measurements = listOf(""),
-                steps = listOf(""),
-            )
+            // ... other recipes
         )
 
         val adapter = RecipeAdapter(recipeList) { recipe ->
-
-            // bundle with parcelable recipe
             val bundle = Bundle().apply {
                 putParcelable(RECIPE_KEY, recipe)
             }
-
-            // destination fragment
             val recipeDetailFragment = RecipeFragment()
-            recipeDetailFragment.arguments = bundle // Attach the data
-
-            // fragment transaction
+            recipeDetailFragment.arguments = bundle
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragment, recipeDetailFragment)
                 .addToBackStack(null)
                 .commit()
         }
-
         recyclerView.adapter = adapter
-
     }
 
+    // Your existing FabController methods remain unchanged
     override fun showFab(): Boolean {
         return true
     }
@@ -184,15 +104,12 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
             val bundle = Bundle().apply {
                 putString(FORM_MODE_KEY, MODE_NEW_RECIPE)
             }
-
             val recipeFormFragment = RecipeFormFragment()
             recipeFormFragment.arguments = bundle
-
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragment, recipeFormFragment)
                 .addToBackStack(null)
                 .commit()
         }
     }
-
 }

@@ -30,7 +30,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
             val stepsContainer: LinearLayout = view.findViewById(R.id.stepsContainer)
 
             titleTextView.text = recipeDetail.title
-            toolbar.title = recipeDetail.title
+            toolbar.title = "Recipe Detail"
             Glide.with(this).load(recipeDetail.image).into(imageView)
 
             val ingredientsMeasurementsCombo: List<String> = recipeDetail.ingredients.zip(recipeDetail.measurements) { ingredient, measurement -> "$measurement $ingredient"

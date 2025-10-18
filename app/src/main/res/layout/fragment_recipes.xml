@@ -7,32 +7,53 @@
     android:layout_height="match_parent"
     tools:context=".RecipesFragment">
 
-    <!-- 1. The AppBarLayout contains your SearchBar -->
+    <!-- 1. AppBarLayout now contains the Toolbar and the hidden SearchBar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange"
-        app:elevation="0dp">
+        android:background="@color/orange">
 
-        <com.google.android.material.search.SearchBar
-            android:id="@+id/searchbarRecipe"
+        <!-- This is the Toolbar that is visible by default -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/recipesToolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Search for recipe..." />
+            android:layout_height="?attr/actionBarSize"
+            app:title="Recipes"
+            app:titleTextColor="@android:color/white"
+            app:menu="@menu/search_menu"
+            android:theme="@style/ThemeOverlay.WhiteIconToolbar"
+            />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 2. The RecyclerView, which now knows how to scroll under the AppBarLayout -->
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/recipesSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:hint="@string/search_for_recipe"
+        android:visibility="gone"
+        tools:visibility="visible"/>
+
+    <com.google.android.material.search.SearchView
+        android:id="@+id/recipesSearchView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:hint="Search for recipe..."
+        app:layout_anchor="@id/recipesSearchBar">
+        <!-- RecyclerView for search results will go here -->
+    </com.google.android.material.search.SearchView>
+
+    <!-- 2. The RecyclerView for your main recipe list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/recipe_item"
+        android:clipToPadding="false"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
-        android:clipToPadding="false"
-        />
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/recipe_item" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

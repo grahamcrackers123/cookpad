@@ -5,28 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
     tools:context=".RecipeFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         >
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/toolbarRecipeDetail"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="Recipe Detail"
             app:navigationIcon="@drawable/ic_back"
             app:menu="@menu/recipe_top_app_bar"
             android:background="@color/orange"
             app:titleTextColor="@color/white"
-            app:titleTextAppearance="@style/TextAppearance.AppCompat.Title"
             app:navigationIconTint="@color/white"
-            style="@style/WhiteIconToolbar"
+            android:theme="@style/ThemeOverlay.WhiteIconToolbar"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

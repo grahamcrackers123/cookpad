@@ -27,7 +27,13 @@ class CategoryAdapter(
                 .into(imageView)
 
             // recipe preview
-            previewTextView.text = category.previewRecipeNames.joinToString(", ")
+            if (category.previewRecipeNames.isNotEmpty()) {
+                previewTextView.visibility = View.VISIBLE
+                previewTextView.text = category.previewRecipeNames.joinToString(", ")
+            } else {
+                previewTextView.visibility = View.GONE
+            }
+
 
             itemView.setOnClickListener {
                 onItemClick(category.name)
