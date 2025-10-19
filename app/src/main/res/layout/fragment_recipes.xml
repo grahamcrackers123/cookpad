@@ -34,7 +34,7 @@
         android:layout_marginHorizontal="16dp"
         android:hint="@string/search_for_recipe"
         android:visibility="gone"
-        tools:visibility="visible"/>
+        tools:visibility="gone"/>
 
     <com.google.android.material.search.SearchView
         android:id="@+id/recipesSearchView"

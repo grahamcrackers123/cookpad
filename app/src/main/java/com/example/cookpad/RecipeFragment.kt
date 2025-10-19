@@ -52,7 +52,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
     private fun setupToolbar(toolbar: Toolbar) {
         // back button
         toolbar.setNavigationOnClickListener {
-            Toast.makeText(requireContext(), "Going back...", Toast.LENGTH_SHORT).show()
+            parentFragmentManager.popBackStack()
         }
 
         val recipeDetail = arguments?.getParcelable<Recipe>(RecipesFragment.RECIPE_KEY)

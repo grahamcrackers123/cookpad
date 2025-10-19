@@ -6,6 +6,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.cookpad.RecipesFragment.Companion.FORM_MODE_KEY
+import com.example.cookpad.RecipesFragment.Companion.MODE_NEW_RECIPE
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.search.SearchView
@@ -32,6 +34,12 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
         val searchView = view.findViewById<SearchView>(R.id.recipesSearchView)
 
         toolbar.title = categoryName
+        toolbar.setNavigationIcon(R.drawable.ic_back)
+        toolbar.setNavigationOnClickListener {
+            parentFragmentManager.popBackStack()
+        }
+        toolbar.navigationIcon?.setTint(resources.getColor(R.color.white, null))
+
 
         toolbar.setOnMenuItemClickListener { menuItem ->
             if (menuItem.itemId == R.id.action_search) {
@@ -96,10 +104,20 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
 
     // Hide the Floating Action Button on this screen
     override fun showFab(): Boolean {
-        return false
+        return true
     }
 
     override fun setupFab(fab: FloatingActionButton) {
-        fab.setOnClickListener(null)
+        fab.setOnClickListener {
+            val bundle = Bundle().apply {
+                putString(FORM_MODE_KEY, MODE_NEW_RECIPE)
+            }
+            val recipeFormFragment = RecipeFormFragment()
+            recipeFormFragment.arguments = bundle
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, recipeFormFragment)
+                .addToBackStack(null)
+                .commit()
+        }
     }
 }
