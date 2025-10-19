@@ -9,7 +9,7 @@
 
     <!-- 1. AppBarLayout now contains the Toolbar and the hidden SearchBar -->
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/recipesAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/orange">
@@ -40,12 +40,10 @@
         android:id="@+id/recipesSearchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Search for recipe..."
+        android:hint="@string/search_for_recipe"
         app:layout_anchor="@id/recipesSearchBar">
-        <!-- RecyclerView for search results will go here -->
     </com.google.android.material.search.SearchView>
 
-    <!-- 2. The RecyclerView for your main recipe list -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recipeRecyclerView"
         android:layout_width="match_parent"

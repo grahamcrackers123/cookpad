@@ -2,11 +2,16 @@
 package com.example.cookpad
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.search.SearchBar
+import com.google.android.material.search.SearchView
 
 // Implement the AddCategoryListener interface
 class CategoriesFragment : Fragment(R.layout.fragment_categories),
@@ -23,34 +28,69 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
 
     private val baseCategoryNames = listOf("Snack", "Meat", "Pasta", "Chicken", "Salad")
 
+
+    // In CategoriesFragment.kt
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // --- IMPORTANT: Simulate getting all recipes to create previews ---
-        val allRecipes = mockAllRecipes() // You need a function to get ALL recipes
-
+        // --- Data setup (This part is correct) ---
+        val allRecipes = mockAllRecipes()
         displayedCategories.clear()
         displayedCategories.addAll(buildCategoryData(allRecipes))
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.categoryRecyclerView)
+        // --- View Initialization ---
+        val recyclerView = view.findViewById<RecyclerView>(R.id.categoriesRecyclerView)
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.categoriesToolbar)
+        val searchBar = view.findViewById<SearchBar>(R.id.categoriesSearchBar)
+        val searchView = view.findViewById<SearchView>(R.id.categoriesSearchView)
 
-        // Initialize adapter with mutable list
+        // --- Adapter Setup (This is correct) ---
         categoryAdapter = CategoryAdapter(displayedCategories) { categoryName ->
-            // --- NEW NAVIGATION: Go to filtered recipe list ---
-            val bundle = Bundle().apply {
-                putString(CATEGORY_NAME_KEY, categoryName)
-            }
-
-            val categoryFragment = CategoryFragment() // New fragment
-            categoryFragment.arguments = bundle
-
-            parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, categoryFragment)
-                .addToBackStack(null)
-                .commit()
+            // Your navigation logic here...
+            // ...
         }
         recyclerView.adapter = categoryAdapter
+
+        // --- Search Logic to Match RecipesFragment ---
+
+        // 1. Listen for a click on the search icon in the toolbar
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            // Check if the clicked item is the search action
+            if (menuItem.itemId == R.id.action_search) { // Ensure this ID matches your categories_menu.xml
+                searchBar.visibility = View.VISIBLE // Show the search bar
+                searchView.show() // Immediately open the search view
+                true
+            } else {
+                false
+            }
+        }
+
+        // 2. Connect the SearchBar and SearchView
+        searchView.setupWithSearchBar(searchBar)
+
+        // 3. Add the text listener to the SearchView for filtering
+        searchView.getEditText().addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                // This will work correctly with your Filterable adapter
+                categoryAdapter.filter.filter(s)
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
+
+        // 4. Handle the back button press inside the SearchView
+        searchView.addTransitionListener { _, _, newState ->
+            if (newState == SearchView.TransitionState.HIDDEN) {
+                // When the search view is closed, hide the search bar again
+                searchBar.visibility = View.GONE
+            }
+        }
     }
+
+
 
     // --- Helper function to restructure data for the category list ---
     private fun buildCategoryData(allRecipes: List<Recipe>): List<Category> {

@@ -1,36 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoriesFragment"
-    android:gravity="center_horizontal">
+    tools:context=".CategoriesFragment">
 
-    <!-- top app bar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
+    <!-- 1. AppBarLayout contains the Toolbar -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/categoriesAppBar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="Categories"
-        app:titleTextColor="@color/white"
-        android:background="@color/orange"
-        />
+        android:layout_height="wrap_content"
+        android:background="@color/orange">
 
+        <!-- This is the Toolbar that is visible by default -->
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/categoriesToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Categories"
+            app:titleTextColor="@android:color/white"
+            app:menu="@menu/search_menu"
+            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/categoryRecyclerView"
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- 2. SearchBar is outside the AppBarLayout, initially hidden -->
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/categoriesSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:hint="Search Categories"
+        android:visibility="gone"
+        app:layout_anchor="@id/categoriesAppBar"
+        tools:visibility="visible"/>
+
+    <!-- 3. SearchView is anchored to the SearchBar -->
+    <com.google.android.material.search.SearchView
+        android:id="@+id/categoriesSearchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="8dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/category_item" />
+        android:hint="Search Categories"
+        app:layout_anchor="@id/categoriesSearchBar">
+        <!-- Content for recent searches can go here -->
+    </com.google.android.material.search.SearchView>
 
+    <!-- 4. RecyclerView for displaying categories -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/categoriesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:listitem="@layout/category_item"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
 
-
-
-
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

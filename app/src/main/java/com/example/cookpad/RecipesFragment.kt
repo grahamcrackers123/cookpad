@@ -77,7 +77,7 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
                 ),
                 categories = listOf("Dinner", "Pasta")
             ),
-            // ... other recipes
+            // add more recipes
         )
 
         val adapter = RecipeAdapter(recipeList) { recipe ->

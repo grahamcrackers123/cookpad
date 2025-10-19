@@ -7,4 +7,5 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="search_for_recipe">Search for recipe...</string>
+    <string name="search_for_a_category">Search for a category...</string>
 </resources>
