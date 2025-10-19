@@ -7,14 +7,12 @@
     android:layout_height="match_parent"
     tools:context=".CategoriesFragment">
 
-    <!-- 1. AppBarLayout contains the Toolbar -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/categoriesAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/orange">
 
-        <!-- This is the Toolbar that is visible by default -->
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/categoriesToolbar"
             android:layout_width="match_parent"
@@ -22,32 +20,29 @@
             app:title="Categories"
             app:titleTextColor="@android:color/white"
             app:menu="@menu/search_menu"
-            android:theme="@style/ThemeOverlay.Material3.Dark.ActionBar" />
+            android:theme="@style/ThemeOverlay.WhiteIconToolbar" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- 2. SearchBar is outside the AppBarLayout, initially hidden -->
     <com.google.android.material.search.SearchBar
         android:id="@+id/categoriesSearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
-        android:hint="Search Categories"
+        android:hint="@string/search_categories"
         android:visibility="gone"
         app:layout_anchor="@id/categoriesAppBar"
         tools:visibility="visible"/>
 
-    <!-- 3. SearchView is anchored to the SearchBar -->
     <com.google.android.material.search.SearchView
         android:id="@+id/categoriesSearchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="Search Categories"
+        android:hint="@string/search_categories"
         app:layout_anchor="@id/categoriesSearchBar">
-        <!-- Content for recent searches can go here -->
+
     </com.google.android.material.search.SearchView>
 
-    <!-- 4. RecyclerView for displaying categories -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/categoriesRecyclerView"
         android:layout_width="match_parent"

@@ -23,7 +23,6 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
         super.onViewCreated(view, savedInstanceState)
 
         val toolbar = view.findViewById<MaterialToolbar>(R.id.recipesToolbar)
-        val searchBar = view.findViewById<SearchBar>(R.id.recipesSearchBar)
         val searchView = view.findViewById<SearchView>(R.id.recipesSearchView)
 
         toolbar.setOnMenuItemClickListener { menuItem ->
@@ -80,10 +79,10 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
             Recipe("Adobo", R.drawable.chicken_pork_adobo, emptyList(), emptyList(), emptyList()),
             Recipe("Caldereta", R.drawable.caldereta, emptyList(), emptyList(), emptyList()),
             Recipe("Salad", R.drawable.avocado_salad, emptyList(), emptyList(), emptyList()),
-            Recipe("Chocolate Chip Cookies", R.drawable.chocolate_chip_cookies, emptyList(), emptyList(), emptyList()),
+            Recipe("Chocolate Chip Cookies", R.drawable.avocado_salad, emptyList(), emptyList(), emptyList()),
         )
 
-        val adapter = RecipeAdapter(recipeList) { recipe ->
+        val adapter = RecipeAdapter(recipeList.toMutableList()) { recipe ->
             val bundle = Bundle().apply {
                 putParcelable(RECIPE_KEY, recipe)
             }

@@ -1,4 +1,3 @@
-// CategoryFragment.kt
 package com.example.cookpad
 
 import android.os.Bundle
@@ -8,70 +7,94 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.appbar.MaterialToolbar
-import com.google.android.material.floatingactionbutton.FloatingActionButton // For FabController
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.search.SearchView
 
+// This fragment uses the 'fragment_recipes.xml' layout to look identical.
 class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
+
+    private lateinit var recipeAdapter: RecipeAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // 1. Retrieve the Category Name
+        // 1. Retrieve the category name passed from CategoriesFragment
         val categoryName = arguments?.getString(CategoriesFragment.CATEGORY_NAME_KEY)
 
         if (categoryName.isNullOrEmpty()) {
-            // Handle error case: Category name not passed
             Toast.makeText(requireContext(), "Error: Category not found.", Toast.LENGTH_LONG).show()
+            parentFragmentManager.popBackStack() // Go back if there's an error
             return
         }
 
-        // 2. Update the Toolbar Title
-        val toolbar = view.findViewById<MaterialToolbar>(R.id.topAppBar) // Assuming your XML has this ID
-        toolbar?.title = categoryName
+        // 2. Find the toolbar from fragment_recipes.xml and set the title
+        val toolbar = view.findViewById<MaterialToolbar>(R.id.recipesToolbar)
+        val searchView = view.findViewById<SearchView>(R.id.recipesSearchView)
 
-        // 3. Get all recipes (Replace this with your actual data source logic)
+        toolbar.title = categoryName
+
+        toolbar.setOnMenuItemClickListener { menuItem ->
+            if (menuItem.itemId == R.id.action_search) {
+                toolbar.visibility = View.GONE
+                searchView.show()
+                true
+            } else {
+                false
+            }
+        }
+        searchView.addTransitionListener { _, _, newState ->
+            if (newState == SearchView.TransitionState.HIDDEN || newState == SearchView.TransitionState.HIDING) {
+                toolbar.visibility = View.VISIBLE
+            }
+        }
+
+
+
+        // 3. Get all recipes from your mock data source
         val allRecipes = mockAllRecipes()
 
-        // 4. Filter Recipes
+        // 4. Filter the recipes to get only the ones in the current category
         val filteredRecipes = allRecipes.filter { recipe ->
-            recipe.categories.contains(categoryName)
+            // Check if the recipe's categories list contains the categoryName
+            recipe.categories.any { it.equals(categoryName, ignoreCase = true) }
         }
 
         // 5. Setup RecyclerView
         val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
-
-        // Use StaggeredGridLayoutManager (like your main Recipes page)
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        // Assuming you have a RecipeAdapter class
-        val adapter = RecipeAdapter(filteredRecipes) { recipe ->
-            // Click listener logic: Navigate to the RecipeDetailFragment
-            // (Similar to what you have in RecipesFragment.kt)
+        // 6. Initialize the RecipeAdapter with the filtered list
+        recipeAdapter = RecipeAdapter(filteredRecipes.toMutableList()) { recipe ->
+            // Navigation logic to go to the recipe detail screen
             val bundle = Bundle().apply {
                 putParcelable(RecipesFragment.RECIPE_KEY, recipe)
             }
             val recipeDetailFragment = RecipeFragment()
             recipeDetailFragment.arguments = bundle
-
             parentFragmentManager.beginTransaction()
                 .replace(R.id.flFragment, recipeDetailFragment)
                 .addToBackStack(null)
                 .commit()
         }
+        recyclerView.adapter = recipeAdapter
 
-        recyclerView.adapter = adapter
+        // If the list is empty, you could show a message
+        if (filteredRecipes.isEmpty()) {
+            Toast.makeText(requireContext(), "No recipes found in $categoryName.", Toast.LENGTH_SHORT).show()
+        }
     }
 
-    // placeholder
+    // This must be the same source of data as used elsewhere
     private fun mockAllRecipes(): List<Recipe> {
         return listOf(
-            Recipe("Truffle Pasta", R.drawable.avocado_salad, emptyList(), emptyList(), listOf("Dinner", "Pasta")),
-            Recipe("Adobo", R.drawable.avocado_salad, emptyList(), emptyList(), listOf("Dinner", "Meat")),
-            Recipe("Breakfast Casserole", R.drawable.avocado_salad, emptyList(), emptyList(), listOf("Breakfast")),
-            Recipe("Veggie Stir Fry", R.drawable.avocado_salad, emptyList(), emptyList(), listOf("Vegetarian")),
-            Recipe("Chicken Adobo", R.drawable.avocado_salad, emptyList(), emptyList(), listOf("Chicken", "Dinner")),
+            Recipe("Garlic Pasta", R.drawable.garlic_pasta, emptyList(), emptyList(), emptyList(), listOf("Pasta")),
+            Recipe("Adobo", R.drawable.chicken_pork_adobo, emptyList(), emptyList(), emptyList(),  listOf("Dinner", "Chicken")),
+            Recipe("Cookies", R.drawable.chocolate_chip_cookies, emptyList(), emptyList(), emptyList(),  listOf("Snack")),
+            Recipe("Caldereta", R.drawable.caldereta, emptyList(), emptyList(), emptyList(),  listOf("Dinner")),
         )
     }
 
+    // Hide the Floating Action Button on this screen
     override fun showFab(): Boolean {
         return false
     }

@@ -47,8 +47,20 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
 
         // --- Adapter Setup (This is correct) ---
         categoryAdapter = CategoryAdapter(displayedCategories) { categoryName ->
-            // Your navigation logic here...
-            // ...
+            // 1. Create a Bundle to pass the clicked category's name
+            val bundle = Bundle().apply {
+                putString(CATEGORY_NAME_KEY, categoryName)
+            }
+
+            // 2. Create an instance of the destination fragment
+            val categoryFragment = CategoryFragment()
+            categoryFragment.arguments = bundle // Attach the bundle as arguments
+
+            // 3. Perform the fragment transaction to navigate
+            parentFragmentManager.beginTransaction()
+                .replace(R.id.flFragment, categoryFragment) // Replace the current view with the new fragment
+                .addToBackStack(null) // Add the transaction to the back stack so the user can press "back"
+                .commit()
         }
         recyclerView.adapter = categoryAdapter
 
