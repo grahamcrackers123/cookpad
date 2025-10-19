@@ -54,7 +54,7 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
                     "butter",
                     "all purpose flour",
                     "cups milk",
-                    "tsp black pepper",
+                    "black pepper",
                     "freshly grated parmigian cheese",
                     "truffle oil",
                     "onion or shallots finely diced",

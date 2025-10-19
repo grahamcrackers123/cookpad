@@ -3,35 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="8dp">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Water"
         android:id="@+id/addedIngredientTextView"
-        />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:text="A very very long ingredient name that could cause issues"
+        android:textAppearance="?attr/textAppearanceBody1" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1/2 cup"
         android:id="@+id/addedMeasurementTextView"
-        />
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="end"
+        android:layout_marginEnd="8dp"
+        android:text="1/2 cup"
+        android:textAppearance="?attr/textAppearanceBody1" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/removeButton"
+        style="@style/Widget.Material3.Button.IconButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/Widget.MaterialComponents.Button.TextButton"
-        app:icon="@drawable/ic_circle_remove"
-        app:iconPadding="0dp"
-        android:insetTop="0dp"
-        android:insetBottom="0dp"
-        android:insetLeft="0dp"
-        android:insetRight="0dp"
-        android:minWidth="0dp"
-        android:minHeight="0dp"
-        app:backgroundTint="@android:color/transparent"
-        android:id="@+id/removeButton"
-        />
+        app:icon="@drawable/ic_circle_remove" />
 </LinearLayout>

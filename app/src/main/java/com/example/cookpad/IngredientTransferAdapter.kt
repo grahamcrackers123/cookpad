@@ -61,7 +61,18 @@ class IngredientTransferAdapter(
 
     // Crucial function for updating the adapter after a transfer
     fun removeItem(ingredient: Ingredient) {
-        val index = items.indexOfFirst { it.id == ingredient.id }
+        val index: Int
+
+        if (ingredient.id != null) {
+            // --- Scenario 1: The ingredient has a stable ID (from a recipe) ---
+            // This is the safe and preferred way.
+            index = items.indexOfFirst { it.id == ingredient.id }
+        } else {
+            // --- Scenario 2: The ingredient is user-added (id is null) ---
+            // We find the exact object by its memory reference.
+            index = items.indexOfFirst { it === ingredient }
+        }
+
         if (index != -1) {
             items.removeAt(index)
             notifyItemRemoved(index)

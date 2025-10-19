@@ -34,8 +34,9 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
         val addedRecycler: RecyclerView = view.findViewById(R.id.addedIngredientsRecyclerView)
 
         // adapters
-        availableAdapter = IngredientTransferAdapter(availableList, true, this)
-        addedAdapter = IngredientTransferAdapter(addedList, false, this)
+        // Give each adapter own copy of list
+        availableAdapter = IngredientTransferAdapter(ArrayList(availableList), true, this)
+        addedAdapter = IngredientTransferAdapter(ArrayList(addedList), false, this)
 
         // link adapters to recyclerviews
         availableRecycler.layoutManager = LinearLayoutManager(context)
