@@ -43,7 +43,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="283dp"
             android:layout_height="56dp"
-            style="?attr/textInputFilledStyle"
+            style="@style/BrownishFilledTextField"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -74,7 +74,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="283dp"
             android:layout_height="56dp"
-            style="?attr/textInputFilledStyle"
+            style="@style/BrownishFilledTextField"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -105,7 +105,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="283dp"
             android:layout_height="56dp"
-            style="?attr/textInputFilledStyle"
+            style="@style/BrownishFilledTextField"
             >
 
             <com.google.android.material.textfield.TextInputEditText

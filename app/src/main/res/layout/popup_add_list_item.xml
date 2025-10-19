@@ -18,12 +18,11 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredientNameInputLayout"
-        style="?attr/textInputFilledStyle"
+        style="@style/BrownishFilledTextField"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        app:boxBackgroundColor="#EBE1D4"
-        android:textColorHint="#4D4639"
+
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -44,12 +43,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredientAmountInputLayout"
-        style="?attr/textInputFilledStyle"
+        style="@style/BrownishFilledTextField"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        app:boxBackgroundColor="#EBE1D4"
-        android:textColorHint="#4D4639"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -75,6 +72,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
+            android:textColor="@color/brown"
             style="@style/Widget.Material3.Button.TextButton"
             />
 
@@ -84,6 +82,7 @@
             android:layout_height="wrap_content"
             android:text="Cancel"
             android:layout_marginStart="8dp"
+            android:textColor="@color/brown"
             style="@style/Widget.Material3.Button.TextButton"
             />
 
