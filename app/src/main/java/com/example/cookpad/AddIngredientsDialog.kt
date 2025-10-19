@@ -21,6 +21,22 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
         initialRecipeIngredients = ingredients
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        // Ensure the dialog and its window are not null
+        dialog?.window?.let { window ->
+            // --- THIS IS THE FIX ---
+            val displayMetrics = resources.displayMetrics
+            // Calculate 90% of the screen's width and height
+            val width = (displayMetrics.widthPixels * 0.90).toInt()
+            val height = (displayMetrics.heightPixels * 0.90).toInt()
+
+            // Apply the new dimensions to the dialog's window
+            window.setLayout(width, height)
+        }
+    }
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.popup_add_to_list, container, false)
     }

@@ -13,6 +13,16 @@ import android.widget.TextView
 
 class AddCategoryDialog : DialogFragment() {
 
+    override fun onStart() {
+        super.onStart()
+
+        dialog?.window?.let { window ->
+            // dialog width is a percentage of screen
+            val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
+            window.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+    }
+
     // Define the interface to communicate the result back to the CategoriesFragment
     interface AddCategoryListener {
         fun onCategoryAdded(categoryName: String)

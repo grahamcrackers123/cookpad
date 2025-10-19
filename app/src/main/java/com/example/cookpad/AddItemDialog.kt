@@ -3,6 +3,7 @@ package com.example.cookpad
 import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.ViewGroup
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
 import com.google.android.material.textfield.TextInputEditText
@@ -10,6 +11,16 @@ import android.widget.Button
 import android.widget.Toast
 
 class AddItemDialog : DialogFragment() {
+
+    override fun onStart() {
+        super.onStart()
+
+        dialog?.window?.let { window ->
+            // dialog width is a percentage of screen
+            val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
+            window.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+        }
+    }
 
     interface AddItemListener {
         fun onIngredientAdded(ingredient: Ingredient)
