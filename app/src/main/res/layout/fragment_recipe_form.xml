@@ -26,7 +26,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
-        android:text="Insert image"
+        android:text="@string/insert_image"
         app:icon="@drawable/ic_image"
         app:iconGravity="textStart"
         app:iconTint="#52452A"
@@ -46,7 +46,7 @@
         android:layout_width="313dp"
         android:layout_height="56dp"
         android:layout_marginBottom="16dp"
-        android:hint="Name"
+        android:hint="@string/name"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -62,7 +62,7 @@
         android:id="@+id/categoryTextField"
         android:layout_width="313dp"
         android:layout_height="56dp"
-        android:hint="Category"
+        android:hint="@string/category"
         android:layout_marginBottom="16dp"
         >
 
@@ -88,7 +88,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="60"
-            android:hint="Ingredient"
+            android:hint="@string/ingredient"
             android:layout_marginEnd="4dp"
             >
 
@@ -106,7 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="40"
-            android:hint="Measurement"
+            android:hint="@string/measurement"
             android:layout_marginStart="4dp"
             >
 
@@ -125,7 +125,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
-        android:text="Add ingredient"
+        android:text="@string/add_ingredient"
         app:icon="@drawable/ic_circle_add"
         app:iconGravity="textStart"
         app:iconTint="#52452A"
@@ -143,7 +143,7 @@
         android:id="@+id/stepsTextField"
         android:layout_width="313dp"
         android:layout_height="56dp"
-        android:hint="Step"
+        android:hint="@string/steps"
         android:layout_marginBottom="8dp"
         >
 
@@ -158,7 +158,7 @@
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
-        android:text="Add step"
+        android:text="@string/add_step"
         app:icon="@drawable/ic_circle_add"
         app:iconGravity="textStart"
         app:iconTint="#52452A"
@@ -198,7 +198,7 @@
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="50"
-            android:text="Cancel"
+            android:text="@string/cancel"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple"
             android:textAllCaps="false"

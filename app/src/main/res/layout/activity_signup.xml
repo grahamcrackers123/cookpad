@@ -16,7 +16,7 @@
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign Up"
+        android:text="@string/sign_up"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
             android:id="@+id/emailAddressLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email Address"
+            android:text="@string/email_address"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
@@ -65,7 +65,7 @@
             android:id="@+id/passwordLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
@@ -96,7 +96,7 @@
             android:id="@+id/retypePasswordLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Retype Password"
+            android:text="@string/retype_password"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
@@ -121,7 +121,7 @@
         android:id="@+id/signupButton"
         android:layout_width="283dp"
         android:layout_height="56dp"
-        android:text="Sign up"
+        android:text="@string/sign_up"
         android:textColor="@color/white"
         android:backgroundTint="@color/purple"
         android:textAllCaps="false"
@@ -138,8 +138,9 @@
             android:id="@+id/signinQuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Already have an account? "
+            android:text="@string/already_have_an_account"
             android:textSize="14sp"
+            android:layout_marginEnd="2dp"
             />
 
         <TextView
@@ -147,10 +148,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contextClickable="true"
-            android:text="Sign in"
+            android:text="@string/sign_in"
             android:textColor="@color/purple"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:layout_marginStart="2dp"
             />
     </LinearLayout>
 

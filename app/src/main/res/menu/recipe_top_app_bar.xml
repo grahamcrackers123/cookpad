@@ -4,14 +4,14 @@
     <item
         android:id="@+id/addToListAction"
         android:icon="@drawable/ic_add_to_list"
-        android:title="Add to Shopping List"
+        android:title="@string/add_to_shopping_list"
         android:iconTint="@color/white"
         app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/editAction"
         android:icon="@drawable/ic_edit"
-        android:title="Edit Recipe"
+        android:title="@string/edit_recipe"
         android:iconTint="@color/white"
         app:showAsAction="ifRoom" />
 </menu>

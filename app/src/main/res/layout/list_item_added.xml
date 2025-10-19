@@ -13,7 +13,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:text="A very very long ingredient name that could cause issues"
+        android:text="@string/example_long_shopping_item_name"
         android:textAppearance="?attr/textAppearanceBody1" />
 
     <TextView
@@ -23,7 +23,7 @@
         android:layout_weight="1"
         android:gravity="end"
         android:layout_marginEnd="8dp"
-        android:text="1/2 cup"
+        android:text="@string/example_item_shopping_amount"
         android:textAppearance="?attr/textAppearanceBody1" />
 
     <com.google.android.material.button.MaterialButton

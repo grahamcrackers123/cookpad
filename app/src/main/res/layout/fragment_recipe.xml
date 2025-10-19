@@ -51,7 +51,7 @@
                     android:layout_width="0dp"
                     android:layout_height="150dp"
                     android:scaleType="centerCrop"
-                    android:contentDescription="Recipe image"
+                    android:contentDescription="@string/recipe_image"
                     android:layout_marginEnd="16dp"
                     android:layout_weight="50"
                     tools:src="@drawable/avocado_salad"
@@ -71,14 +71,14 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?attr/textAppearanceHeadlineSmall"
                         tools:text="Spaghetti Carbonara"
-                        android:textSize="32dp"
+                        android:textSize="32sp"
                         android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/recipeDetailCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="24dp"
+                        android:textSize="24sp"
                         tools:text="Dinner" />
 
                 </LinearLayout>
@@ -87,12 +87,13 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Ingredients"
+                android:text="@string/ingredients"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="8dp"
-                android:paddingBottom="8dp"/>
+                android:paddingBottom="8dp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:id="@+id/ingredientsContainer"
@@ -100,17 +101,19 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:paddingStart="16dp"
-                android:paddingEnd="16dp"/>
+                android:paddingEnd="16dp"
+                />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Instructions"
+                android:text="@string/steps"
                 android:textAppearance="?attr/textAppearanceTitleMedium"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
                 android:paddingTop="16dp"
-                android:paddingBottom="8dp"/>
+                android:paddingBottom="8dp"
+                android:textStyle="bold"/>
 
             <LinearLayout
                 android:id="@+id/stepsContainer"

@@ -10,7 +10,7 @@
     <color name="bottom_nav_unselected">#4D4639</color>
     <color name="bottom_nav_background">@color/orange</color>
 
-    <color name="checkbox_unchecked_color">#808080</color> <!-- Grey for the box -->
-    <color name="checkbox_checked_color">#FFA500</color>   <!-- Orange for the checkmark -->
+    <color name="checkbox_unchecked_color">#808080</color>
+    <color name="checkbox_checked_color">#FFA500</color>
 
 </resources>

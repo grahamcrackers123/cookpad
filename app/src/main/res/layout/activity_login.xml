@@ -16,7 +16,7 @@
         android:id="@+id/signinText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
+        android:text="@string/sign_in"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -34,7 +34,7 @@
             android:id="@+id/emailAddressLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Email Address"
+            android:text="@string/email_address"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
@@ -65,7 +65,7 @@
             android:id="@+id/passwordLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Password"
+            android:text="@string/password"
             android:textColor="@color/white"
             android:textSize="14sp"
             android:layout_marginBottom="8dp"
@@ -94,13 +94,13 @@
         android:textSize="14dp"
         android:textColor="@color/purple"
         android:textStyle="bold"
-        android:text="Forgot password?" />
+        android:text="@string/forgot_password" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/loginButton"
         android:layout_width="283dp"
         android:layout_height="56dp"
-        android:text="Login"
+        android:text="@string/sign_in"
         android:textColor="@color/white"
         android:backgroundTint="@color/purple"
         android:textAllCaps="false"
@@ -117,8 +117,9 @@
             android:id="@+id/signupQuestionText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Don't have an account yet? "
+            android:text="@string/don_t_have_an_account_yet"
             android:textSize="14sp"
+            android:layout_marginEnd="2dp"
             />
 
         <TextView
@@ -126,10 +127,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contextClickable="true"
-            android:text="Sign up"
+            android:text="@string/sign_up"
             android:textColor="@color/purple"
             android:textSize="14sp"
             android:textStyle="bold"
+            android:layout_marginStart="2dp"
             />
     </LinearLayout>
 

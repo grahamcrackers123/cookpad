@@ -19,7 +19,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:paddingStart="8dp"
-            android:text="Example shopping list item item tiem tiem tiemitem"
+            android:text="@string/example_long_shopping_item_name"
             android:layout_weight="75"
             />
 
@@ -27,7 +27,7 @@
             android:id="@+id/ingredientMeasurement"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:text="8 cups"
+            android:text="@string/example_item_shopping_amount"
             android:layout_weight="25"
             android:gravity="right|center_vertical"
             android:paddingEnd="8dp"

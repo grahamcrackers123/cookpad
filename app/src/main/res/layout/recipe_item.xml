@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="140dp"
             android:scaleType="centerCrop"
-            android:contentDescription="recipe image"
+            android:contentDescription="@string/recipe_image"
             />
 
         <TextView
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="16dp"
-            android:text="recipe name"
+            android:text="@string/recipe_name"
             android:textAppearance="?attr/textAppearanceTitleMedium" />
 
     </LinearLayout>

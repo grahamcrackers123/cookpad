@@ -14,7 +14,7 @@
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:contentDescription="Carousel image"
+        android:contentDescription="@string/carousel_image"
         />
 
 </com.google.android.material.carousel.MaskableFrameLayout>
