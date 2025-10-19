@@ -12,12 +12,14 @@
 
     <!-- top app bar -->
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/topAppBar"
+        android:id="@+id/recipeFormTopAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        app:title="Add Recipe"
+        app:title="@string/recipe_form"
         app:titleTextColor="@color/white"
         android:background="@color/orange"
+        app:navigationIcon="@drawable/ic_back"
+        app:navigationIconTint="@color/white"
         />
 
     <!--insert image button-->
@@ -180,10 +182,11 @@
 
         <!--save button-->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveRecipeButton"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="50"
-            android:text="Save"
+            android:text="@string/save"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple"
             android:textAllCaps="false"
@@ -193,6 +196,7 @@
 
         <!--cancel button-->
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/cancelRecipeButton"
             android:layout_width="0dp"
             android:layout_height="56dp"
             android:layout_weight="50"

@@ -23,7 +23,6 @@ class AddCategoryDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Return null here to indicate that we will create the dialog in onCreateDialog
         return null
     }
 
@@ -36,32 +35,24 @@ class AddCategoryDialog : DialogFragment() {
         val saveButton = dialogView.findViewById<Button>(R.id.saveCategoryButton)
         val cancelButton = dialogView.findViewById<Button>(R.id.cancelCategoryButton)
 
-        // --- 2. Setup Click Listeners ---
-
-        // SAVE Button Listener
         saveButton.setOnClickListener {
-            val categoryName = categoryNameEditText.text?.toString()?.trim()
-
-            if (!categoryName.isNullOrEmpty()) {
-                // Communicate the new category name back to the CategoriesFragment
-                (targetFragment as? AddCategoryListener)?.onCategoryAdded(categoryName)
-                dismiss() // Close the dialog
-            } else {
-                // Optional: Show an error message (e.g., set an error on the TextInputLayout)
-            }
+            dismiss()
+//            val categoryName = categoryNameEditText.text?.toString()?.trim()
+//
+//            if (!categoryName.isNullOrEmpty()) {
+//                // Communicate the new category name back to the CategoriesFragment
+//                (targetFragment as? AddCategoryListener)?.onCategoryAdded(categoryName)
+//                dismiss() // Close the dialog
+//            } else {
+//                // Optional: Show an error message (e.g., set an error on the TextInputLayout)
+//            }
         }
 
-        // CANCEL Button Listener
         cancelButton.setOnClickListener {
-            dismiss() // Close the dialog
+            dismiss()
         }
-
-        // --- 3. Build the AlertDialog ---
         val builder = AlertDialog.Builder(requireContext())
         builder.setView(dialogView)
-
-        // NOTE: Since your layout includes the title, you can omit setTitle on the builder,
-        // but if you want to apply the standard dialog style, the builder is required.
 
         val dialog = builder.create()
 

@@ -9,4 +9,6 @@
     <string name="search_for_recipe">Search for recipe...</string>
     <string name="search_for_a_category">Search for a category...</string>
     <string name="search_categories">Search categories...</string>
+    <string name="save">Save</string>
+    <string name="recipe_form">Recipe Form</string>
 </resources>

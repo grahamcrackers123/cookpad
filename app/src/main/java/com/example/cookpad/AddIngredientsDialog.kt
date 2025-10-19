@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -45,7 +46,18 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
         addedRecycler.layoutManager = LinearLayoutManager(context)
         addedRecycler.adapter = addedAdapter
 
-        // Setup Save/Cancel button listeners here
+        // save/cancel button, no functions yet just closes the dialog
+        val saveButton= view.findViewById<Button>(R.id.saveAddedItemsButton)
+        val cancelButton = view.findViewById<Button>(R.id.cancelAddedItemsButton)
+
+        saveButton.setOnClickListener {
+            dismiss()
+        }
+
+        cancelButton.setOnClickListener {
+            dismiss()
+        }
+
     }
 
     override fun onIngredientAdded(ingredient: Ingredient) {

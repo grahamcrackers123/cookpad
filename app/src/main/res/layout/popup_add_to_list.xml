@@ -7,7 +7,10 @@
     android:background="@drawable/rounded_corners"
     android:clipToOutline="true"
     android:padding="16dp">
-    
+
+    <!--dialog that asks user what ingredients in the recipe they want to add to the shopping list -->
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +57,7 @@
         android:gravity="end">
 
         <Button
+            android:id="@+id/saveAddedItemsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Save"
@@ -61,6 +65,7 @@
             />
 
         <Button
+            android:id="@+id/cancelAddedItemsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cancel"
