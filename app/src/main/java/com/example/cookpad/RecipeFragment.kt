@@ -26,10 +26,12 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
             val toolbar: Toolbar = view.findViewById(R.id.toolbarRecipeDetail)
             val imageView: ImageView = view.findViewById(R.id.recipeDetailImage)
             val titleTextView: TextView = view.findViewById(R.id.recipeDetailTitle)
+            val categoryTextView: TextView = view.findViewById(R.id.recipeDetailCategory)
             val ingredientsContainer: LinearLayout = view.findViewById(R.id.ingredientsContainer)
             val stepsContainer: LinearLayout = view.findViewById(R.id.stepsContainer)
 
             titleTextView.text = recipeDetail.title
+            categoryTextView.text = recipeDetail.categories.joinToString(", ")
             toolbar.title = "Recipe Detail"
             Glide.with(this).load(recipeDetail.image).into(imageView)
 

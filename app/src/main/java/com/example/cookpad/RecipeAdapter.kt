@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import org.w3c.dom.Text
 
+// for the recipe cards on recipes fragment
 class RecipeAdapter(
     private val recipes: List<Recipe>,
     private val onItemClick: (Recipe) -> Unit

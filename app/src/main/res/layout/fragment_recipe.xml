@@ -71,13 +71,14 @@
                         android:layout_height="wrap_content"
                         android:textAppearance="?attr/textAppearanceHeadlineSmall"
                         tools:text="Spaghetti Carbonara"
-                        android:textSize="32dp"/>
+                        android:textSize="32dp"
+                        android:textStyle="bold"/>
 
                     <TextView
                         android:id="@+id/recipeDetailCategory"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?attr/textAppearanceTitleMedium"
+                        android:textSize="24dp"
                         android:layout_marginTop="8dp"
                         tools:text="Dinner" />
 
