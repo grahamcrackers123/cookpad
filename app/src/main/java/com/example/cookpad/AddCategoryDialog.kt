@@ -23,7 +23,6 @@ class AddCategoryDialog : DialogFragment() {
         }
     }
 
-    // Define the interface to communicate the result back to the CategoriesFragment
     interface AddCategoryListener {
         fun onCategoryAdded(categoryName: String)
     }
@@ -40,7 +39,6 @@ class AddCategoryDialog : DialogFragment() {
         val dialogView = LayoutInflater.from(requireContext())
             .inflate(R.layout.popup_add_category, null, false)
 
-        // --- 1. View Bindings ---
         val categoryNameEditText = dialogView.findViewById<TextInputEditText>(R.id.categoryNameEditText)
         val saveButton = dialogView.findViewById<Button>(R.id.saveCategoryButton)
         val cancelButton = dialogView.findViewById<Button>(R.id.cancelCategoryButton)
@@ -50,11 +48,10 @@ class AddCategoryDialog : DialogFragment() {
 //            val categoryName = categoryNameEditText.text?.toString()?.trim()
 //
 //            if (!categoryName.isNullOrEmpty()) {
-//                // Communicate the new category name back to the CategoriesFragment
 //                (targetFragment as? AddCategoryListener)?.onCategoryAdded(categoryName)
 //                dismiss() // Close the dialog
 //            } else {
-//                // Optional: Show an error message (e.g., set an error on the TextInputLayout)
+//
 //            }
         }
 
@@ -66,7 +63,6 @@ class AddCategoryDialog : DialogFragment() {
 
         val dialog = builder.create()
 
-        // Optional: Ensure the background/corners are respected if the AlertDialog wrapper interferes
         dialog.window?.setBackgroundDrawableResource(android.R.color.transparent)
 
         return dialog

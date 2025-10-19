@@ -17,22 +17,18 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
     private lateinit var addedAdapter: IngredientTransferAdapter
 
     fun setAvailableIngredients(ingredients: List<Ingredient>) {
-        // Store the incoming data for use in onViewCreated
         initialRecipeIngredients = ingredients
     }
 
     override fun onStart() {
         super.onStart()
 
-        // Ensure the dialog and its window are not null
         dialog?.window?.let { window ->
-            // --- THIS IS THE FIX ---
             val displayMetrics = resources.displayMetrics
-            // Calculate 90% of the screen's width and height
+            // calculate 90% of screen's width and height
             val width = (displayMetrics.widthPixels * 0.90).toInt()
             val height = (displayMetrics.heightPixels * 0.90).toInt()
 
-            // Apply the new dimensions to the dialog's window
             window.setLayout(width, height)
         }
     }
@@ -51,7 +47,6 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
         val addedRecycler: RecyclerView = view.findViewById(R.id.addedIngredientsRecyclerView)
 
         // adapters
-        // Give each adapter own copy of list
         availableAdapter = IngredientTransferAdapter(ArrayList(availableList), true, this)
         addedAdapter = IngredientTransferAdapter(ArrayList(addedList), false, this)
 

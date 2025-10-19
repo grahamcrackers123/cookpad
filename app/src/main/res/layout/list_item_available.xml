@@ -8,7 +8,6 @@
     android:paddingStart="16dp"
     android:paddingEnd="8dp">
 
-    <!-- Ingredient TextView -->
     <TextView
         android:id="@+id/availableIngredientTextView"
         android:layout_width="0dp"
@@ -17,7 +16,6 @@
         android:text="@string/example_long_shopping_item_name"
         android:textAppearance="?attr/textAppearanceBody1" />
 
-    <!-- Measurement TextView -->
     <TextView
         android:id="@+id/availableMeasurementTextView"
         android:layout_width="0dp"

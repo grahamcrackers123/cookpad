@@ -12,7 +12,6 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
     FabController,
     AddItemDialog.AddItemListener {
 
-    // Use a mutable list and save the adapter instance
     private val shoppingList = mutableListOf(
         Ingredient(name = "Flour", amount = "3 cups"),
         Ingredient(name = "Oil", amount = "3 cups"),
@@ -40,10 +39,8 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
         fab.setOnClickListener {
             val dialog = AddItemDialog()
 
-            // Set this fragment as the target to receive the result
             dialog.setTargetFragment(this, 0)
 
-            // Show the dialog
             dialog.show(parentFragmentManager, "AddItemDialog")
         }
     }

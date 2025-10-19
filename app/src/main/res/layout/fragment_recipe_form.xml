@@ -10,7 +10,6 @@
     tools:context=".CategoriesFragment"
     android:gravity="center_horizontal">
 
-    <!-- top app bar -->
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/recipeFormTopAppBar"
         android:layout_width="match_parent"
@@ -22,7 +21,6 @@
         app:navigationIconTint="@color/white"
         />
 
-    <!--insert image button-->
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
@@ -39,7 +37,6 @@
         app:cornerRadius="4dp"
         />
 
-    <!--Name textfield-->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/nameTextField"
@@ -56,7 +53,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--Category textfield-->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/categoryTextField"
@@ -81,7 +77,6 @@
         android:layout_marginBottom="8dp"
         >
 
-        <!--Ingredients textfield-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/BrownishFilledTextField"
             android:id="@+id/ingredientTextField"
@@ -99,7 +94,6 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!--Measurement textfield-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/BrownishFilledTextField"
             android:id="@+id/measurementTextField"
@@ -119,9 +113,6 @@
 
     </LinearLayout>
 
-
-
-    <!--Add another ingredient button-->
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
@@ -137,7 +128,6 @@
         app:cornerRadius="4dp"
         />
 
-    <!--Steps textfield-->
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/stepsTextField"
@@ -154,7 +144,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!--Add another step button-->
     <com.google.android.material.button.MaterialButton
         android:layout_width="313dp"
         android:layout_height="56dp"
@@ -178,7 +167,6 @@
         android:weightSum="100"
         >
 
-        <!--save button-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveRecipeButton"
             android:layout_width="0dp"
@@ -192,7 +180,6 @@
             android:layout_marginEnd="4dp"
             />
 
-        <!--cancel button-->
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancelRecipeButton"
             android:layout_width="0dp"

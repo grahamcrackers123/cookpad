@@ -54,7 +54,7 @@ class AddItemDialog : DialogFragment() {
         }
 
         cancelButton.setOnClickListener {
-            dismiss() // Close the dialog
+            dismiss()
         }
 
 

@@ -9,15 +9,13 @@ import com.google.android.material.button.MaterialButton
 
 // 1. Define the callback interface
 interface IngredientTransferListener {
-    // Called when an item is added to the list (transfer from Available to Added)
     fun onIngredientAdded(ingredient: Ingredient)
-    // Called when an item is removed from the list (transfer from Added to Available)
     fun onIngredientRemoved(ingredient: Ingredient)
 }
 
 class IngredientTransferAdapter(
     private val items: MutableList<Ingredient>,
-    private val isAvailableList: Boolean, // True for the top list, False for the bottom list
+    private val isAvailableList: Boolean,
     private val listener: IngredientTransferListener
 ) : RecyclerView.Adapter<IngredientTransferAdapter.IngredientViewHolder>() {
 
@@ -36,7 +34,6 @@ class IngredientTransferAdapter(
             nameTextView.text = ingredient.name
             quantityTextView.text = ingredient.amount
 
-            // Set the action based on which list this adapter belongs to
             actionButton.setOnClickListener {
                 if (isAvailableList) {
                     listener.onIngredientAdded(ingredient)
@@ -59,17 +56,12 @@ class IngredientTransferAdapter(
 
     override fun getItemCount() = items.size
 
-    // Crucial function for updating the adapter after a transfer
     fun removeItem(ingredient: Ingredient) {
         val index: Int
 
         if (ingredient.id != null) {
-            // --- Scenario 1: The ingredient has a stable ID (from a recipe) ---
-            // This is the safe and preferred way.
             index = items.indexOfFirst { it.id == ingredient.id }
         } else {
-            // --- Scenario 2: The ingredient is user-added (id is null) ---
-            // We find the exact object by its memory reference.
             index = items.indexOfFirst { it === ingredient }
         }
 
@@ -80,7 +72,6 @@ class IngredientTransferAdapter(
     }
 
     fun addItem(ingredient: Ingredient) {
-        // Simple add, but you might want to sort this in a real app
         items.add(ingredient)
         notifyItemInserted(items.size - 1)
     }

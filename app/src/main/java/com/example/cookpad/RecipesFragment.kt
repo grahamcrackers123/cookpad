@@ -44,7 +44,6 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
         val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        // Your existing recipe list and adapter setup
         val recipeList = listOf(
             Recipe(
                 title = "Truffle Pasta",
@@ -96,7 +95,6 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
         recyclerView.adapter = adapter
     }
 
-    // Your existing FabController methods remain unchanged
     override fun showFab(): Boolean {
         return true
     }

@@ -50,45 +50,34 @@ class MainActivity2 : AppCompatActivity() {
         }
 
         supportFragmentManager.addOnBackStackChangedListener {
-            // Get the currently visible fragment
             val currentFragment = supportFragmentManager.findFragmentById(R.id.flFragment)
 
             if (currentFragment != null) {
-                // Run the visibility logic any time the back stack changes (navigation happens)
                 updateFabVisibility(currentFragment, fab)
             }
         }
     }
 
     private fun setCurrentFragment(fragment: Fragment, fab: FloatingActionButton) {
-        // Note: The logic for FAB visibility is now handled by updateFabVisibility
-        // and the BackStackListener. We call it here for the initial setup.
 
         supportFragmentManager.beginTransaction().apply {
             replace(R.id.flFragment, fragment)
-            // We do NOT call addToBackStack here for the primary bottom nav fragments
             commit()
         }
 
-        // Call the visibility helper after replacing the fragment
         updateFabVisibility(fragment, fab)
     }
 
-
-    // NEW METHOD to handle the FAB logic consistently
     private fun updateFabVisibility(fragment: Fragment, fab: FloatingActionButton) {
-        // MUST clear the listener first, just in case
         fab.setOnClickListener(null)
-        fab.hide() // Default state is hidden
+        fab.hide()
 
         if (fragment is FabController) {
             if (fragment.showFab()) {
                 fab.show()
-                fragment.setupFab(fab) // Set up the specific click listener
+                fragment.setupFab(fab)
             }
-            // If showFab() returns false, it already hit fab.hide() and fab.setOnClickListener(null)
         }
-        // If the fragment doesn't implement the interface, the FAB stays hidden
     }
 
 }

@@ -61,10 +61,8 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
             when (item.itemId) {
                 R.id.addToListAction -> {
                     if (recipeDetail != null) {
-                        // 1. Create the dialog instance
                         val dialog = AddIngredientsDialog()
 
-                        // 2. Prepare the data to pass to the dialog
                         val ingredientData = recipeDetail.ingredients.zip(recipeDetail.measurements)
                             .mapIndexed { index, pair ->
                                 Ingredient(
@@ -105,7 +103,7 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
     }
 
     private fun populateList(container: LinearLayout, items: List<String>, isNumbered: Boolean) {
-        container.removeAllViews() // clear existing views
+        container.removeAllViews()
 
         items.forEachIndexed { index, item ->
             val textView = TextView(context).apply {
@@ -123,7 +121,6 @@ class RecipeFragment : Fragment(R.layout.fragment_recipe), FabController {
                 }
                 text = textToDisplay
 
-                // Optional: set text appearance
                 setTextAppearance(com.google.android.material.R.style.TextAppearance_Material3_BodyLarge)
             }
             container.addView(textView)
