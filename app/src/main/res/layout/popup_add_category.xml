@@ -21,6 +21,7 @@
         android:layout_height="@dimen/button_height"
         android:text="@string/insert_image"
         app:icon="@drawable/ic_image"
+        android:contentDescription="@string/insert_image_button"
         app:iconGravity="textStart"
         app:iconTint="#52452A"
         android:textColor="#52452A"

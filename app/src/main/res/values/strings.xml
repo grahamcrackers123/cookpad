@@ -45,4 +45,7 @@
     <string name="forgot_password_title">Forgot Password</string>
     <string name="enter_your_email_address_to_reset_your_account">Enter your email address to reset your account</string>
     <string name="send_reset_link">Send Reset Link</string>
+    <string name="insert_image_button">insert image button</string>
+    <string name="search_button">search button</string>
+    <string name="add_ingredents_to_shopping_list">Add ingredents (from recipe) to the shopping list</string>
 </resources>

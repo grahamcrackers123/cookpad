@@ -4,16 +4,21 @@
     <item
         android:id="@+id/miRecipe"
         android:title="@string/recipes"
-        android:icon="@drawable/ic_recipe_book" />
+        android:icon="@drawable/ic_recipe_book"
+        android:contentDescription="@string/recipes"/>
 
     <item
         android:id="@+id/miCategories"
         android:title="@string/categories"
-        android:icon="@drawable/ic_categories" />
+        android:icon="@drawable/ic_categories"
+        android:contentDescription="@string/categories"
+        />
 
     <item
         android:id="@+id/miShoppingList"
         android:title="@string/shopping_list"
-        android:icon="@drawable/ic_shopping_bag" />
+        android:icon="@drawable/ic_shopping_bag"
+        android:contentDescription="@string/shopping_list"
+        />
 
 </menu>
