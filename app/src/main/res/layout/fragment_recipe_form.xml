@@ -132,12 +132,12 @@
         android:checkable="true"
         android:layout_marginBottom="@dimen/margin_medium"
         app:cornerRadius="@dimen/button_corner_radius"
-        android:nextFocusForward="@id/stepsTextField"
+        android:nextFocusForward="@id/stepTextField"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
-        android:id="@+id/stepsTextField"
+        android:id="@+id/stepTextField"
         android:layout_width="@dimen/text_input_width"
         android:layout_height="@dimen/text_input_height"
         android:hint="@string/steps"

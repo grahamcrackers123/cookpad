@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import com.google.android.material.textfield.TextInputEditText
 import android.widget.Button
 import android.widget.TextView
+import com.google.android.material.textfield.TextInputLayout
 
 class AddCategoryDialog : DialogFragment() {
 
@@ -39,20 +40,22 @@ class AddCategoryDialog : DialogFragment() {
         val dialogView = LayoutInflater.from(requireContext())
             .inflate(R.layout.popup_add_category, null, false)
 
+        val categoryNameInputLayout = dialogView.findViewById<TextInputLayout>(R.id.categoryNameInputLayout)
         val categoryNameEditText = dialogView.findViewById<TextInputEditText>(R.id.categoryNameEditText)
         val saveButton = dialogView.findViewById<Button>(R.id.saveCategoryButton)
         val cancelButton = dialogView.findViewById<Button>(R.id.cancelCategoryButton)
 
         saveButton.setOnClickListener {
-            dismiss()
-//            val categoryName = categoryNameEditText.text?.toString()?.trim()
-//
-//            if (!categoryName.isNullOrEmpty()) {
+            val categoryName = categoryNameEditText.text?.toString()?.trim()
+
+            categoryNameInputLayout.error = null
+
+            if (!categoryName.isNullOrEmpty()) {
 //                (targetFragment as? AddCategoryListener)?.onCategoryAdded(categoryName)
-//                dismiss() // Close the dialog
-//            } else {
-//
-//            }
+                dismiss()
+            } else {
+                categoryNameInputLayout.error = "Category name cannot be empty"
+            }
         }
 
         cancelButton.setOnClickListener {

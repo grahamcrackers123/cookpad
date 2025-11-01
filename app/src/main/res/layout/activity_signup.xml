@@ -41,6 +41,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
@@ -72,6 +73,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
@@ -103,6 +105,7 @@
             />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/retypePasswordRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
