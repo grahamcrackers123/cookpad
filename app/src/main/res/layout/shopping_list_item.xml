@@ -18,6 +18,7 @@
             android:id="@+id/ingredientCheckbox"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:minHeight="48dp"
             android:paddingStart="8dp"
             android:text="@string/example_long_shopping_item_name"
             android:layout_weight="75"

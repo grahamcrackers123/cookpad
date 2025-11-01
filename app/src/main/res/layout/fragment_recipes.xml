@@ -47,8 +47,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingTop="8dp"
-        android:paddingBottom="8dp"
+        android:paddingTop="@dimen/padding_small"
+        android:paddingBottom="@dimen/padding_small"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:listitem="@layout/recipe_item" />
 

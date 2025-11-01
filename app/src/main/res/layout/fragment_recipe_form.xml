@@ -22,8 +22,8 @@
         />
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="313dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="@string/insert_image"
         app:icon="@drawable/ic_image"
         app:iconGravity="textStart"
@@ -32,17 +32,17 @@
         android:backgroundTint="#F2DDB8"
         android:textAllCaps="false"
         android:checkable="true"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="4dp"
+        android:layout_marginTop="@dimen/margin_extra_large"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:cornerRadius="@dimen/button_corner_radius"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/nameTextField"
-        android:layout_width="313dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_width="@dimen/text_input_width"
+        android:layout_height="@dimen/text_input_height"
+        android:layout_marginBottom="@dimen/margin_medium"
         android:hint="@string/name"
         >
 
@@ -56,10 +56,10 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/categoryTextField"
-        android:layout_width="313dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/text_input_width"
+        android:layout_height="@dimen/text_input_height"
         android:hint="@string/category"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_medium"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -70,21 +70,21 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
-        android:layout_width="313dp"
+        android:layout_width="@dimen/text_input_width"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_small"
         >
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/BrownishFilledTextField"
             android:id="@+id/ingredientTextField"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/text_input_height"
             android:layout_weight="60"
             android:hint="@string/ingredient"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="@dimen/margin_extra_small"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -98,10 +98,10 @@
             style="@style/BrownishFilledTextField"
             android:id="@+id/measurementTextField"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/text_input_height"
             android:layout_weight="40"
             android:hint="@string/measurement"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="@dimen/margin_extra_small"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -114,8 +114,8 @@
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="313dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="@string/add_ingredient"
         app:icon="@drawable/ic_circle_add"
         app:iconGravity="textStart"
@@ -124,17 +124,17 @@
         android:backgroundTint="#F2DDB8"
         android:textAllCaps="false"
         android:checkable="true"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="4dp"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:cornerRadius="@dimen/button_corner_radius"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         style="@style/BrownishFilledTextField"
         android:id="@+id/stepsTextField"
-        android:layout_width="313dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/text_input_width"
+        android:layout_height="@dimen/text_input_height"
         android:hint="@string/steps"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="@dimen/margin_small"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -145,8 +145,8 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.button.MaterialButton
-        android:layout_width="313dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="@string/add_step"
         app:icon="@drawable/ic_circle_add"
         app:iconGravity="textStart"
@@ -155,13 +155,13 @@
         android:backgroundTint="#F2DDB8"
         android:textAllCaps="false"
         android:checkable="true"
-        android:layout_marginBottom="16dp"
-        app:cornerRadius="4dp"
+        android:layout_marginBottom="@dimen/margin_medium"
+        app:cornerRadius="@dimen/button_corner_radius"
         />
 
 
     <LinearLayout
-        android:layout_width="313dp"
+        android:layout_width="@dimen/button_width"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
@@ -170,27 +170,27 @@
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveRecipeButton"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/button_height"
             android:layout_weight="50"
             android:text="@string/save"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple"
             android:textAllCaps="false"
-            app:cornerRadius="4dp"
-            android:layout_marginEnd="4dp"
+            app:cornerRadius="@dimen/button_corner_radius"
+            android:layout_marginEnd="@dimen/margin_extra_small"
             />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancelRecipeButton"
             android:layout_width="0dp"
-            android:layout_height="56dp"
+            android:layout_height="@dimen/button_height"
             android:layout_weight="50"
             android:text="@string/cancel"
             android:textColor="@color/white"
             android:backgroundTint="@color/purple"
             android:textAllCaps="false"
-            app:cornerRadius="4dp"
-            android:layout_marginStart="4dp"
+            app:cornerRadius="@dimen/button_corner_radius"
+            android:layout_marginStart="@dimen/margin_extra_small"
             />
 
     </LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/rounded_corners"
     android:clipToOutline="true"
-    android:padding="16dp">
+    android:padding="@dimen/padding_medium">
 
     <!--dialog that asks user what ingredients in the recipe they want to add to the shopping list -->
 
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="@string/available_ingredients"
         android:textStyle="bold"
-        android:paddingBottom="4dp"
+        android:paddingBottom="@dimen/padding_extra_small"
         />
 
     <androidx.recyclerview.widget.RecyclerView
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         app:dividerInsetStart="16dp"
         app:dividerInsetEnd="16dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:layout_marginTop="@dimen/margin_small"
         />
 
     <TextView

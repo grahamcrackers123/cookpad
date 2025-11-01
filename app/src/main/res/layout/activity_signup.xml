@@ -20,14 +20,14 @@
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_medium"
         />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="@dimen/margin_medium"
         >
 
         <TextView
@@ -37,12 +37,12 @@
             android:text="@string/email_address"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/margin_small"
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="283dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/text_input_width"
+            android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
             >
 
@@ -59,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="@dimen/margin_medium">
 
         <TextView
             android:id="@+id/passwordLabel"
@@ -68,12 +68,12 @@
             android:text="@string/password"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/margin_small"
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="283dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/text_input_width"
+            android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
             >
 
@@ -90,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_marginBottom="24dp">
+        android:layout_marginBottom="@dimen/margin_large">
 
         <TextView
             android:id="@+id/retypePasswordLabel"
@@ -99,12 +99,12 @@
             android:text="@string/retype_password"
             android:textColor="@color/white"
             android:textSize="14sp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/margin_small"
             />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="283dp"
-            android:layout_height="56dp"
+            android:layout_width="@dimen/text_input_width"
+            android:layout_height="@dimen/text_input_height"
             style="@style/BrownishFilledTextField"
             >
 
@@ -119,14 +119,14 @@
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/signupButton"
-        android:layout_width="283dp"
-        android:layout_height="56dp"
+        android:layout_width="@dimen/button_width"
+        android:layout_height="@dimen/button_height"
         android:text="@string/sign_up"
         android:textColor="@color/white"
         android:backgroundTint="@color/purple"
         android:textAllCaps="false"
-        app:cornerRadius="4dp"
-        android:layout_marginBottom="16dp"
+        app:cornerRadius="@dimen/button_corner_radius"
+        android:layout_marginBottom="@dimen/margin_medium"
         />
 
     <LinearLayout

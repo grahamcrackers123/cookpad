@@ -6,22 +6,22 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corners"
     android:clipToOutline="true"
-    android:padding="16dp">
+    android:padding="@dimen/padding_medium">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ingredient_name"
         android:textStyle="bold"
-        android:paddingBottom="4dp"
+        android:paddingBottom="@dimen/padding_extra_small"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredientNameInputLayout"
         style="@style/BrownishFilledTextField"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/text_input_height"
+        android:layout_marginBottom="@dimen/margin_medium"
 
         >
 
@@ -38,15 +38,15 @@
         android:layout_height="wrap_content"
         android:text="@string/amount"
         android:textStyle="bold"
-        android:paddingBottom="4dp"
+        android:paddingBottom="@dimen/padding_extra_small"
         />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/ingredientAmountInputLayout"
         style="@style/BrownishFilledTextField"
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="@dimen/text_input_height"
+        android:layout_marginBottom="@dimen/margin_medium"
         >
 
         <com.google.android.material.textfield.TextInputEditText
@@ -81,7 +81,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/cancel"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="@dimen/margin_small"
             android:textColor="@color/brown"
             style="@style/Widget.Material3.Button.TextButton"
             />
