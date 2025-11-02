@@ -41,13 +41,12 @@ class AddItemDialog : DialogFragment() {
 
         saveButton.setOnClickListener {
             val name = nameEditText.text?.toString()?.trim()
-            val amount = amountEditText.text?.toString()?.trim()
+            val amount = amountEditText.text?.toString()?.trim() ?: ""
 
             ingredientNameLayout.error = null
             amountLayout.error = null
 
             if (!name.isNullOrEmpty()
-                && !amount.isNullOrEmpty()
                 ) {
                 val newIngredient = Ingredient(
                     name = name,
@@ -56,12 +55,7 @@ class AddItemDialog : DialogFragment() {
                 (targetFragment as? AddItemListener)?.onIngredientAdded(newIngredient)
                 dismiss()
             } else {
-                if (name.isNullOrEmpty()) {
-                    ingredientNameLayout.error = "Ingredient name cannot be empty"
-                }
-                if (amount.isNullOrEmpty()) {
-                    amountLayout.error = "Ingredient amount cannot be empty"
-                }
+                ingredientNameLayout.error = "Ingredient name cannot be empty"
             }
         }
 
