@@ -102,7 +102,38 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
         return listOf(
             Recipe("Garlic Pasta", R.drawable.garlic_pasta, emptyList(), emptyList(), emptyList(), listOf("Pasta")),
             Recipe("Adobo", R.drawable.chicken_pork_adobo, emptyList(), emptyList(), emptyList(),  listOf("Dinner", "Chicken")),
-            Recipe("Cookies", R.drawable.chocolate_chip_cookies, emptyList(), emptyList(), emptyList(),  listOf("Snack")),
+            Recipe(
+                title = "Chocolate Chip Cookies",
+                image = R.drawable.chocolate_chip_cookies,
+                ingredients = listOf(
+                    "butter",
+                    "packed brown sugar",
+                    "white sugar",
+                    "vanilla extract",
+                    "large egss",
+                    "all-purpose flour",
+                    "baking soda",
+                    "salt",
+                    "semisweet chocolate chips"
+                ),
+                measurements = listOf(
+                    "1 cup",
+                    "1 cup",
+                    "1/2 cup",
+                    "1 teaspoon",
+                    "2",
+                    "2 1/2 cups",
+                    "1 teaspoon",
+                    "1 teaspoon",
+                    "2 cups"
+                ),
+                steps = listOf(
+                    "In a pot, melt butter and add  flour. On med-low heat mix the roux until its a slight golden brown and  add the onions. Cook for 2 mins until onions are slightly cooked and  wilted down and add the truffle oil.",
+                    "Next add the milk and whisk  out any clumps from the roux until you have a smooth consistency. Lower  the heat and bring to a simmer.",
+                    "Add the parmigiana cheese,  black pepper and salt to taste. Keep stirring until the sauce starts to  thicken. Add in the cooked pasta and serve while its hot."
+                ),
+                categories = listOf("Snack")
+            ),
             Recipe("Caldereta", R.drawable.caldereta, emptyList(), emptyList(), emptyList(),  listOf("Dinner")),
         )
     }
