@@ -28,4 +28,10 @@
     <color name="toolbar_text_color">@color/white</color>
     <color name="toolbar_icon_color">@color/white</color>
 
+        <color name="searchview_background">#FFF3E0</color> <!-- light orange-tinted background -->
+        <color name="searchview_text">#5D4037</color> <!-- brownish text -->
+        <color name="searchview_hint">#A1887F</color> <!-- lighter brown -->
+        <color name="searchview_icon">#E65100</color> <!-- orange accent -->
+
+
 </resources>

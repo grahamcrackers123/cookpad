@@ -11,5 +11,25 @@
         <item name="cornerSize">16dp</item>
     </style>
 
+    <style name="CustomSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textColor">@color/searchview_text</item>
+        <item name="android:textColorHint">@color/searchview_hint</item>
+        <item name="queryBackground">@color/searchview_background</item>
+        <item name="submitBackground">@color/searchview_background</item>
+    </style>
+
+<!--    <style name="ThemeOverlay.CustomSearchView" parent="ThemeOverlay.Material3.Search">-->
+<!--        <item name="colorSurface">@color/searchview_background</item>-->
+<!--        <item name="colorOnSurface">@color/searchview_text</item>-->
+<!--        <item name="hintTextColor">@color/searchview_hint</item>-->
+<!--    </style>-->
+
+    <style name="ThemeOverlay.CustomSearchView" parent="ThemeOverlay.Material3.Search">
+        <item name="colorSurface">@color/searchview_background</item>         <!-- background -->
+        <item name="colorOnSurface">@color/searchview_text</item>            <!-- text + icons -->
+        <item name="colorOnSurfaceVariant">@color/searchview_hint</item>     <!-- hint text -->
+    </style>
+
+
 
 </resources>

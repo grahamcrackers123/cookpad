@@ -41,8 +41,7 @@
         android:id="@+id/recipesSearchView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:hint="@string/search_for_recipe"
-        app:layout_anchor="@id/recipesSearchBar">
+        android:hint="@string/search_for_recipe">
     </com.google.android.material.search.SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
