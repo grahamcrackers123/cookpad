@@ -1,5 +1,6 @@
 package com.example.cookpad
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -30,7 +31,13 @@ class AddIngredientsDialog : DialogFragment(), IngredientTransferListener {
             val height = (displayMetrics.heightPixels * 0.90).toInt()
 
             window.setLayout(width, height)
+
+            window.setBackgroundDrawableResource(android.R.color.transparent)
         }
+    }
+
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        return Dialog(requireContext(), R.style.RoundedDialogTheme)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

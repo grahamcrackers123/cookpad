@@ -4,4 +4,22 @@
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
     </style>
+
+    <style name="BrownFilledTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="boxBackgroundColor">#3A3026</item>
+        <item name="hintTextColor">#DCCFC0</item>
+        <item name="boxStrokeColor">#DCCFC0</item>
+        <item name="android:textColorHint">#80DCCFC0</item>  <!-- 50% opacity -->
+    </style>
+
+    <style name="BrownButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">#613D1A</item>
+        <item name="android:textColor">#E9E1D6</item>
+        <item name="iconTint">#E9E1D6</item>
+    </style>
+
+    <style name="ThemeOverlay.IconToolbar" parent="">
+        <item name="iconTint">#B7A99A</item>
+    </style>
+
 </resources>

@@ -61,7 +61,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:textColor="@color/brown"
+            android:textColor="@color/dialog_button_text_color"
             style="@style/Widget.Material3.Button.TextButton"
             />
 
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:layout_marginStart="8dp"
-            android:textColor="@color/brown"
+            android:textColor="@color/dialog_button_text_color"
             style="@style/Widget.Material3.Button.TextButton"
             />
 

@@ -2,7 +2,6 @@
 <resources>
 
     <style name="RoundedDialogTheme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
-        <!-- Rounded corners -->
         <item name="shapeAppearanceMediumComponent">@style/RoundedDialogShape</item>
     </style>
 

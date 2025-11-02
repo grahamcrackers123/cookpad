@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipeFragment">
+    tools:context=".RecipeFragment"
+    android:background="@color/fragment_bg_color"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/recipesAppBarLayout"
@@ -19,10 +21,10 @@
             android:layout_height="?attr/actionBarSize"
             app:navigationIcon="@drawable/ic_back"
             app:menu="@menu/recipe_top_app_bar"
-            android:background="@color/orange"
-            app:titleTextColor="@color/white"
-            app:navigationIconTint="@color/white"
-            android:theme="@style/ThemeOverlay.WhiteIconToolbar"
+            android:background="@color/toolbar_bg"
+            app:titleTextColor="@color/toolbar_text_color"
+            app:navigationIconTint="@color/toolbar_icon_color"
+            android:theme="@style/ThemeOverlay.IconToolbar"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

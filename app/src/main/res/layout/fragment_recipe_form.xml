@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <!-- 1. The root is a ScrollView to allow scrolling -->
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,51 +6,49 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".RecipeFormFragment">
+    tools:context=".RecipeFormFragment"
+    android:background="@color/fragment_bg_color"
+    >
 
-    <!-- 2. Inside the ScrollView is a single ConstraintLayout -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <!-- Each element is constrained to the one above it -->
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/fragment_bg_color">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/recipeFormTopAppBar"
             android:layout_width="0dp"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/orange"
+            android:background="@color/toolbar_bg"
             app:navigationIcon="@drawable/ic_back"
-            app:navigationIconTint="@color/white"
+            app:navigationIconTint="@color/toolbar_icon_color"
             app:title="@string/recipe_form"
-            app:titleTextColor="@color/white"
+            app:titleTextColor="@color/toolbar_text_color"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/insertImageButton"
+            style="@style/BrownButton"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/margin_medium"
-            android:backgroundTint="#F2DDB8"
             android:checkable="true"
             android:nextFocusForward="@id/nameTextField"
             android:text="@string/insert_image"
             android:textAllCaps="false"
-            android:textColor="#52452A"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_image"
             app:iconGravity="textStart"
-            app:iconTint="#52452A"
             app:layout_constraintTop_toBottomOf="@id/recipeFormTopAppBar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/nameTextField"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -69,7 +66,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/categoryTextField"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -88,7 +85,7 @@
         <!-- For horizontal groups, we use Guideline or Chains for alignment -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ingredientTextField"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -108,7 +105,7 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/measurementTextField"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_extra_small"
@@ -127,26 +124,24 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addIngredientButton"
+            style="@style/BrownButton"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/margin_medium"
-            android:backgroundTint="#F2DDB8"
             android:checkable="true"
             android:nextFocusForward="@id/stepTextField"
             android:text="@string/add_ingredient"
             android:textAllCaps="false"
-            android:textColor="#52452A"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_circle_add"
             app:iconGravity="textStart"
-            app:iconTint="#52452A"
             app:layout_constraintTop_toBottomOf="@id/ingredientTextField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/stepTextField"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_medium"
@@ -164,19 +159,17 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/addStepButton"
+            style="@style/BrownButton"
             android:layout_width="@dimen/button_width"
             android:layout_height="@dimen/button_height"
             android:layout_marginTop="@dimen/margin_medium"
-            android:backgroundTint="#F2DDB8"
             android:checkable="true"
             android:nextFocusForward="@id/saveRecipeButton"
             android:text="@string/add_step"
             android:textAllCaps="false"
-            android:textColor="#52452A"
             app:cornerRadius="@dimen/button_corner_radius"
             app:icon="@drawable/ic_circle_add"
             app:iconGravity="textStart"
-            app:iconTint="#52452A"
             app:layout_constraintTop_toBottomOf="@id/stepTextField"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

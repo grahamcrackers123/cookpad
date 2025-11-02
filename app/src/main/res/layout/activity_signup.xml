@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".LoginActivity"
-    android:background="@color/orange"
+    android:background="@color/authentication_page_bg_color"
     android:orientation="vertical"
     android:gravity="center"
     >
@@ -17,7 +17,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/sign_up"
-        android:textColor="@color/white"
+        android:textColor="@color/title_color"
         android:textSize="32sp"
         android:textStyle="bold"
         android:layout_marginBottom="@dimen/margin_medium"
@@ -44,7 +44,7 @@
             android:id="@+id/emailRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             app:errorEnabled="true"
             >
 
@@ -78,7 +78,7 @@
             android:id="@+id/passwordRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             app:errorEnabled="true"
             >
 
@@ -111,7 +111,7 @@
             android:id="@+id/retypePasswordRegisterInputLayout"
             android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
-            style="@style/BrownishFilledTextField"
+            style="@style/BrownFilledTextField"
             app:errorEnabled="true"
             >
 
@@ -130,7 +130,7 @@
         android:layout_height="@dimen/button_height"
         android:text="@string/sign_up"
         android:textColor="@color/white"
-        android:backgroundTint="@color/purple"
+        android:backgroundTint="@color/authentication_page_accent_color"
         android:textAllCaps="false"
         app:cornerRadius="@dimen/button_corner_radius"
         android:layout_marginBottom="@dimen/margin_medium"
@@ -156,7 +156,7 @@
             android:layout_height="wrap_content"
             android:contextClickable="true"
             android:text="@string/sign_in"
-            android:textColor="@color/purple"
+            android:textColor="@color/authentication_page_accent_color"
             android:textSize="14sp"
             android:textStyle="bold"
             android:layout_marginStart="2dp"

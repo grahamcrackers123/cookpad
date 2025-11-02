@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/rounded_corners"
     android:clipToOutline="true"
-    android:padding="@dimen/padding_medium">
+    android:padding="@dimen/padding_medium"
+    >
 
     <TextView
         android:layout_width="match_parent"
@@ -18,14 +19,12 @@
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
+        style="@style/BrownButton"
         android:layout_height="@dimen/button_height"
         android:text="@string/insert_image"
         app:icon="@drawable/ic_image"
         android:contentDescription="@string/insert_image_button"
         app:iconGravity="textStart"
-        app:iconTint="#52452A"
-        android:textColor="#52452A"
-        android:backgroundTint="#F2DDB8"
         android:textAllCaps="false"
         android:checkable="true"
         android:layout_marginBottom="@dimen/margin_medium"
@@ -42,7 +41,7 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/categoryNameInputLayout"
-        style="@style/BrownishFilledTextField"
+        style="@style/BrownFilledTextField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:errorEnabled="true"
@@ -68,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/save"
-            android:textColor="@color/brown"
+            android:textColor="@color/dialog_button_text_color"
             style="@style/Widget.Material3.Button.TextButton"
             />
 
@@ -78,7 +77,7 @@
             android:layout_height="wrap_content"
             android:text="@string/cancel"
             android:layout_marginStart="@dimen/margin_small"
-            android:textColor="@color/brown"
+            android:textColor="@color/dialog_button_text_color"
             style="@style/Widget.Material3.Button.TextButton"
             />
 

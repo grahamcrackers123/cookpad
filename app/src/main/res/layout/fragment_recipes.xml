@@ -5,22 +5,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipesFragment">
+    tools:context=".RecipesFragment"
+    android:background="@color/fragment_bg_color"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/recipesAppBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/orange">
+        android:background="@color/toolbar_bg">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/recipesToolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="Recipes"
-            app:titleTextColor="@android:color/white"
+            app:titleTextColor="@color/toolbar_text_color"
             app:menu="@menu/search_menu"
-            android:theme="@style/ThemeOverlay.WhiteIconToolbar"
+            android:theme="@style/ThemeOverlay.IconToolbar"
             />
 
     </com.google.android.material.appbar.AppBarLayout>

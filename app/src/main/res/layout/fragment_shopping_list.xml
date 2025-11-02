@@ -7,15 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity2"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/fragment_bg_color"
+    >
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/topAppBar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:title="Shopping List"
-        app:titleTextColor="@color/white"
-        android:background="@color/orange"
+        app:titleTextColor="@color/toolbar_text_color"
+        android:background="@color/toolbar_bg"
         />
 
     <androidx.recyclerview.widget.RecyclerView

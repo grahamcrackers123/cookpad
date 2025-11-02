@@ -7,19 +7,25 @@
     <style name="Theme.CookPad" parent="Base.Theme.CookPad"/>
 
     <style name="WhiteIconToolbar" parent="Widget.MaterialComponents.Toolbar.Primary">
-        <item name="materialThemeOverlay">@style/ThemeOverlay.WhiteIconToolbar</item>
+        <item name="materialThemeOverlay">@style/ThemeOverlay.IconToolbar</item>
     </style>
 
-    <style name="ThemeOverlay.WhiteIconToolbar" parent="">
+    <style name="ThemeOverlay.IconToolbar" parent="">
         <item name="iconTint">@color/white</item>
     </style>
 
-    <style name="BrownishFilledTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="BrownFilledTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">#EBE1D4</item>
         <item name="hintTextColor">#4D4639</item>
         <item name="boxStrokeColor">#4D4639</item>
         <item name="android:textColorHint">#804D4639</item>
 <!--        50% transparency for the hint-->
+    </style>
+
+    <style name="BrownButton" parent="Widget.Material3.Button">
+        <item name="backgroundTint">#F2DDB8</item>
+        <item name="android:textColor">#52452A</item>
+        <item name="iconTint">#52452A</item>
     </style>
 
     <style name="RemoveBottomNavIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
@@ -31,11 +37,5 @@
         <item name="android:textColor">#4D4639</item>
         <item name="android:textColorHint">#804D4639</item>
     </style>
-
-<!--    <style name="OrangeCheckbox" parent="Widget.Material3.CompoundButton.CheckBox">-->
-<!--        <item name="colorOnSurface">@color/checkbox_unchecked_color</item>-->
-<!--        <item name="colorSecondary">@color/checkbox_checked_color</item>-->
-<!--    </style>-->
-
 
 </resources>
