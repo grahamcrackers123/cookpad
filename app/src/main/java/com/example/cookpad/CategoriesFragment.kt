@@ -43,18 +43,20 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
         val searchView = view.findViewById<SearchView>(R.id.categoriesSearchView)
 
         categoryAdapter = CategoryAdapter(displayedCategories) { categoryName ->
+
             val bundle = Bundle().apply {
                 putString(CATEGORY_NAME_KEY, categoryName)
             }
 
-            val categoryFragment = CategoryFragment()
-            categoryFragment.arguments = bundle
+            val recipeListFragment = CategoryFragment()
+            recipeListFragment.arguments = bundle
 
             parentFragmentManager.beginTransaction()
-                .replace(R.id.flFragment, categoryFragment)
+                .replace(R.id.flFragment, recipeListFragment)
                 .addToBackStack(null)
                 .commit()
         }
+
         recyclerView.adapter = categoryAdapter
 
 

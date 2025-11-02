@@ -2,6 +2,7 @@ package com.example.cookpad
 
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,11 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val loadingProgressBar = view.findViewById<View>(R.id.loadingRecipesProgressBar) // Or whatever the ID is
+        val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
+        val emptyStateTextView = view.findViewById<TextView>(R.id.emptyRecipesStateTextView)
+
+
         val categoryName = arguments?.getString(CategoriesFragment.CATEGORY_NAME_KEY)
 
         if (categoryName.isNullOrEmpty()) {
@@ -35,8 +41,8 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
         toolbar.setNavigationOnClickListener {
             parentFragmentManager.popBackStack()
         }
-        toolbar.navigationIcon?.setTint(resources.getColor(R.color.white, null))
-
+        val navIconTintColor = resources.getColor(R.color.toolbar_icon_color, null)
+        toolbar.navigationIcon?.setTint(navIconTintColor)
 
         toolbar.setOnMenuItemClickListener { menuItem ->
             if (menuItem.itemId == R.id.action_search) {
@@ -53,7 +59,9 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
             }
         }
 
-
+        loadingProgressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        emptyStateTextView.visibility = View.GONE
 
         val allRecipes = mockAllRecipes()
 
@@ -61,7 +69,7 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
             recipe.categories.any { it.equals(categoryName, ignoreCase = true) }
         }
 
-        val recyclerView: RecyclerView = view.findViewById(R.id.recipeRecyclerView)
+
         recyclerView.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
         recipeAdapter = RecipeAdapter(filteredRecipes.toMutableList()) { recipe ->
@@ -77,8 +85,16 @@ class CategoryFragment : Fragment(R.layout.fragment_recipes), FabController {
         }
         recyclerView.adapter = recipeAdapter
 
+        loadingProgressBar.visibility = View.GONE
+
         if (filteredRecipes.isEmpty()) {
-            Toast.makeText(requireContext(), "No recipes found in $categoryName.", Toast.LENGTH_SHORT).show()
+            emptyStateTextView.text = "No recipes found in '$categoryName'"
+            emptyStateTextView.visibility = View.VISIBLE
+            recyclerView.visibility = View.GONE
+        } else {
+            // Show the recycler view if recipes were found
+            emptyStateTextView.visibility = View.GONE
+            recyclerView.visibility = View.VISIBLE
         }
     }
 

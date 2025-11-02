@@ -22,6 +22,7 @@
             app:title="Recipes"
             app:titleTextColor="@color/toolbar_text_color"
             app:menu="@menu/search_menu"
+            app:navigationIconTint="@color/toolbar_icon_color"
             android:theme="@style/ThemeOverlay.IconToolbar"
             />
 
@@ -31,7 +32,7 @@
         android:id="@+id/recipesSearchBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/margin_medium"
         android:hint="@string/search_for_recipe"
         android:visibility="gone"
         tools:visibility="gone"/>
