@@ -48,4 +48,8 @@
     <string name="insert_image_button">insert image button</string>
     <string name="search_button">search button</string>
     <string name="add_ingredents_to_shopping_list">Add ingredents (from recipe) to the shopping list</string>
+    <string name="no_categories_found">No categories found.</string>
+    <string name="failed_to_load_categories">Failed to load categories. Please try again.</string>
+    <string name="no_recipes_found">No recipes found.</string>
+    <string name="no_shopping_list_items_found">No shopping list items found.</string>
 </resources>

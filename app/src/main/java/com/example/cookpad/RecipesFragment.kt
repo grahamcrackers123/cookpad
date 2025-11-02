@@ -2,12 +2,13 @@ package com.example.cookpad
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.google.android.material.search.SearchBar
 import com.google.android.material.search.SearchView
 
 class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
@@ -93,6 +94,21 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
                 .commit()
         }
         recyclerView.adapter = adapter
+
+        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loadingRecipesProgressBar)
+        val emptyStateTextView = view.findViewById<TextView>(R.id.emptyRecipesStateTextView)
+
+        loadingProgressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        emptyStateTextView.visibility = View.GONE
+
+        loadingProgressBar.visibility = View.GONE
+        if (recipeList.isNotEmpty()) {
+            recyclerView.visibility = View.VISIBLE
+        } else {
+            emptyStateTextView.text = getString(R.string.no_recipes_found)
+            emptyStateTextView.visibility = View.VISIBLE
+        }
     }
 
     override fun showFab(): Boolean {

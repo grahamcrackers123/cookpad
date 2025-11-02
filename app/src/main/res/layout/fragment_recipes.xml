@@ -50,6 +50,24 @@
         android:paddingTop="@dimen/padding_small"
         android:paddingBottom="@dimen/padding_small"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:listitem="@layout/recipe_item" />
+        tools:listitem="@layout/recipe_item"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/loadingRecipesProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/emptyRecipesStateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_recipes_found"
+        android:visibility="gone"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

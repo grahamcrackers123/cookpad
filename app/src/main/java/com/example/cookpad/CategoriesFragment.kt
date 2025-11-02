@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
@@ -83,6 +85,22 @@ class CategoriesFragment : Fragment(R.layout.fragment_categories),
                 searchBar.visibility = View.GONE
             }
         }
+
+        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loadingCategoriesProgressBar)
+        val emptyStateTextView = view.findViewById<TextView>(R.id.emptyCategoriesStateTextView)
+
+        loadingProgressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        emptyStateTextView.visibility = View.GONE
+
+        loadingProgressBar.visibility = View.GONE
+        if (displayedCategories.isNotEmpty()) {
+            recyclerView.visibility = View.VISIBLE
+        } else {
+            emptyStateTextView.text = getString(R.string.no_categories_found)
+            emptyStateTextView.visibility = View.VISIBLE
+        }
+
     }
 
 

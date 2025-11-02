@@ -24,6 +24,23 @@
         android:id="@+id/shoppingListRecyclerView"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         android:nestedScrollingEnabled="true"
+        android:visibility="gone"
+        />
+
+    <ProgressBar
+        android:id="@+id/loadingShoppingListProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/emptyShoppingListStateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/no_shopping_list_items_found"
+        android:visibility="gone"
         />
 
 </LinearLayout>

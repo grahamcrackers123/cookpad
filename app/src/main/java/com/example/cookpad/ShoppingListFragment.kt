@@ -3,6 +3,8 @@ package com.example.cookpad
 import ShoppingListAdapter
 import android.os.Bundle
 import android.view.View
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -20,6 +22,7 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
         Ingredient(name = "Milk", amount = "3 cups", isChecked = true),
         Ingredient(name = "Oil", amount = "3 cups"),
     )
+
     private lateinit var shoppingListAdapter: ShoppingListAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -28,7 +31,23 @@ class ShoppingListFragment : Fragment(R.layout.fragment_shopping_list),
         val recyclerView = view.findViewById<RecyclerView>(R.id.shoppingListRecyclerView)
 
         shoppingListAdapter = ShoppingListAdapter(shoppingList)
+
         recyclerView.adapter = shoppingListAdapter
+
+        val loadingProgressBar = view.findViewById<ProgressBar>(R.id.loadingShoppingListProgressBar)
+        val emptyStateTextView = view.findViewById<TextView>(R.id.emptyShoppingListStateTextView)
+
+        loadingProgressBar.visibility = View.VISIBLE
+        recyclerView.visibility = View.GONE
+        emptyStateTextView.visibility = View.GONE
+
+        loadingProgressBar.visibility = View.GONE
+        if (shoppingList.isNotEmpty()) {
+            recyclerView.visibility = View.VISIBLE
+        } else {
+            emptyStateTextView.text = getString(R.string.no_shopping_list_items_found)
+            emptyStateTextView.visibility = View.VISIBLE
+        }
     }
 
     override fun showFab(): Boolean {
