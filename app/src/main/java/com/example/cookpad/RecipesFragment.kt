@@ -2,10 +2,8 @@ package com.example.cookpad
 
 import android.os.Bundle
 import android.view.View
-import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -27,6 +25,12 @@ class RecipesFragment : Fragment(R.layout.fragment_recipes), FabController {
 
         val toolbar = view.findViewById<MaterialToolbar>(R.id.recipesToolbar)
         val searchView = view.findViewById<SearchView>(R.id.recipesSearchView)
+
+        searchView.addTransitionListener { searchView, previousState, newState ->
+            if (newState == SearchView.TransitionState.HIDDEN || newState == SearchView.TransitionState.HIDING) {
+                toolbar.visibility = View.VISIBLE
+            }
+        }
 
         toolbar.setOnMenuItemClickListener { menuItem ->
             if (menuItem.itemId == R.id.action_search) {
