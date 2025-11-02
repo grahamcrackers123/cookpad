@@ -1,211 +1,230 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+    <!-- 1. The root is a ScrollView to allow scrolling -->
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoriesFragment"
-    android:gravity="center_horizontal">
+    android:fillViewport="true"
+    tools:context=".RecipeFormFragment">
 
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/recipeFormTopAppBar"
+    <!-- 2. Inside the ScrollView is a single ConstraintLayout -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        app:title="@string/recipe_form"
-        app:titleTextColor="@color/white"
-        android:background="@color/orange"
-        app:navigationIcon="@drawable/ic_back"
-        app:navigationIconTint="@color/white"
-        />
+        android:layout_height="wrap_content">
 
-    <com.google.android.material.button.MaterialButton
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/insert_image"
-        app:icon="@drawable/ic_image"
-        app:iconGravity="textStart"
-        app:iconTint="#52452A"
-        android:textColor="#52452A"
-        android:backgroundTint="#F2DDB8"
-        android:textAllCaps="false"
-        android:checkable="true"
-        android:layout_marginTop="@dimen/margin_extra_large"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:cornerRadius="@dimen/button_corner_radius"
-        android:nextFocusForward="@id/nameTextField"
-        />
+        <!-- Each element is constrained to the one above it -->
 
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/BrownishFilledTextField"
-        android:id="@+id/nameTextField"
-        android:layout_width="@dimen/text_input_width"
-        android:layout_height="@dimen/text_input_height"
-        android:layout_marginBottom="@dimen/margin_medium"
-        android:hint="@string/name"
-        android:nextFocusForward="@id/categoryTextField"
-        >
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/recipeFormTopAppBar"
+            android:layout_width="0dp"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/orange"
+            app:navigationIcon="@drawable/ic_back"
+            app:navigationIconTint="@color/white"
+            app:title="@string/recipe_form"
+            app:titleTextColor="@color/white"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/BrownishFilledTextField"
-        android:id="@+id/categoryTextField"
-        android:layout_width="@dimen/text_input_width"
-        android:layout_height="@dimen/text_input_height"
-        android:hint="@string/category"
-        android:layout_marginBottom="@dimen/margin_medium"
-        android:nextFocusForward="@id/ingredientTextField"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <LinearLayout
-        android:layout_width="@dimen/text_input_width"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        android:layout_marginBottom="@dimen/margin_small"
-        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/insertImageButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:backgroundTint="#F2DDB8"
+            android:checkable="true"
+            android:nextFocusForward="@id/nameTextField"
+            android:text="@string/insert_image"
+            android:textAllCaps="false"
+            android:textColor="#52452A"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:icon="@drawable/ic_image"
+            app:iconGravity="textStart"
+            app:iconTint="#52452A"
+            app:layout_constraintTop_toBottomOf="@id/recipeFormTopAppBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameTextField"
             style="@style/BrownishFilledTextField"
+            android:layout_width="@dimen/text_input_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/name"
+            android:nextFocusForward="@id/categoryTextField"
+            app:layout_constraintTop_toBottomOf="@id/insertImageButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/categoryTextField"
+            style="@style/BrownishFilledTextField"
+            android:layout_width="@dimen/text_input_width"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/category"
+            android:nextFocusForward="@id/ingredientTextField"
+            app:layout_constraintTop_toBottomOf="@id/nameTextField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- For horizontal groups, we use Guideline or Chains for alignment -->
+        <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ingredientTextField"
+            style="@style/BrownishFilledTextField"
             android:layout_width="0dp"
-            android:layout_height="@dimen/text_input_height"
-            android:layout_weight="60"
-            android:hint="@string/ingredient"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_extra_small"
+            android:hint="@string/ingredient"
             android:nextFocusForward="@id/measurementTextField"
-            >
+            app:layout_constraintHorizontal_weight="6"
+            app:layout_constraintTop_toBottomOf="@id/categoryTextField"
+            app:layout_constraintStart_toStartOf="@id/categoryTextField"
+            app:layout_constraintEnd_toStartOf="@id/measurementTextField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/BrownishFilledTextField"
             android:id="@+id/measurementTextField"
+            style="@style/BrownishFilledTextField"
             android:layout_width="0dp"
-            android:layout_height="@dimen/text_input_height"
-            android:layout_weight="40"
-            android:hint="@string/measurement"
+            android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_extra_small"
+            android:hint="@string/measurement"
             android:nextFocusForward="@id/addIngredientButton"
-            >
+            app:layout_constraintHorizontal_weight="4"
+            app:layout_constraintTop_toTopOf="@id/ingredientTextField"
+            app:layout_constraintStart_toEndOf="@id/ingredientTextField"
+            app:layout_constraintEnd_toEndOf="@id/categoryTextField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                />
+                android:layout_height="wrap_content" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
-    </LinearLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addIngredientButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:backgroundTint="#F2DDB8"
+            android:checkable="true"
+            android:nextFocusForward="@id/stepTextField"
+            android:text="@string/add_ingredient"
+            android:textAllCaps="false"
+            android:textColor="#52452A"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:icon="@drawable/ic_circle_add"
+            app:iconGravity="textStart"
+            app:iconTint="#52452A"
+            app:layout_constraintTop_toBottomOf="@id/ingredientTextField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/addIngredientButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/add_ingredient"
-        app:icon="@drawable/ic_circle_add"
-        app:iconGravity="textStart"
-        app:iconTint="#52452A"
-        android:textColor="#52452A"
-        android:backgroundTint="#F2DDB8"
-        android:textAllCaps="false"
-        android:checkable="true"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:cornerRadius="@dimen/button_corner_radius"
-        android:nextFocusForward="@id/stepTextField"
-        />
-
-    <com.google.android.material.textfield.TextInputLayout
-        style="@style/BrownishFilledTextField"
-        android:id="@+id/stepTextField"
-        android:layout_width="@dimen/text_input_width"
-        android:layout_height="@dimen/text_input_height"
-        android:hint="@string/steps"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:nextFocusForward="@id/addStepButton"
-        >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/stepTextField"
+            style="@style/BrownishFilledTextField"
+            android:layout_width="@dimen/text_input_width"
             android:layout_height="wrap_content"
-            />
+            android:layout_marginTop="@dimen/margin_medium"
+            android:hint="@string/steps"
+            android:nextFocusForward="@id/addStepButton"
+            app:layout_constraintTop_toBottomOf="@id/addIngredientButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-    </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/addStepButton"
-        android:layout_width="@dimen/button_width"
-        android:layout_height="@dimen/button_height"
-        android:text="@string/add_step"
-        app:icon="@drawable/ic_circle_add"
-        app:iconGravity="textStart"
-        app:iconTint="#52452A"
-        android:textColor="#52452A"
-        android:backgroundTint="#F2DDB8"
-        android:textAllCaps="false"
-        android:checkable="true"
-        android:layout_marginBottom="@dimen/margin_medium"
-        app:cornerRadius="@dimen/button_corner_radius"
-        android:nextFocusForward="@id/saveRecipeButton"
-        />
+        </com.google.android.material.textfield.TextInputLayout>
 
-
-    <LinearLayout
-        android:layout_width="@dimen/button_width"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="100"
-        >
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/addStepButton"
+            android:layout_width="@dimen/button_width"
+            android:layout_height="@dimen/button_height"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:backgroundTint="#F2DDB8"
+            android:checkable="true"
+            android:nextFocusForward="@id/saveRecipeButton"
+            android:text="@string/add_step"
+            android:textAllCaps="false"
+            android:textColor="#52452A"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:icon="@drawable/ic_circle_add"
+            app:iconGravity="textStart"
+            app:iconTint="#52452A"
+            app:layout_constraintTop_toBottomOf="@id/stepTextField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/saveRecipeButton"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
-            android:layout_weight="50"
-            android:text="@string/save"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/purple"
-            android:textAllCaps="false"
-            app:cornerRadius="@dimen/button_corner_radius"
+            android:layout_marginTop="@dimen/margin_medium"
             android:layout_marginEnd="@dimen/margin_extra_small"
+            android:backgroundTint="@color/purple"
             android:nextFocusForward="@id/cancelRecipeButton"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toBottomOf="@id/addStepButton"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cancelRecipeButton"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.4"
             />
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/cancelRecipeButton"
             android:layout_width="0dp"
             android:layout_height="@dimen/button_height"
-            android:layout_weight="50"
-            android:text="@string/cancel"
-            android:textColor="@color/white"
-            android:backgroundTint="@color/purple"
-            android:textAllCaps="false"
-            app:cornerRadius="@dimen/button_corner_radius"
             android:layout_marginStart="@dimen/margin_extra_small"
+            android:backgroundTint="@color/purple"
+            android:text="@string/cancel"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="@dimen/button_corner_radius"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintTop_toTopOf="@id/saveRecipeButton"
+            app:layout_constraintStart_toEndOf="@id/saveRecipeButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0.4"
             />
 
-    </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp"
+            app:layout_constraintTop_toBottomOf="@id/saveRecipeButton" />
 
-
-
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

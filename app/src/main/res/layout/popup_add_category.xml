@@ -44,8 +44,9 @@
         android:id="@+id/categoryNameInputLayout"
         style="@style/BrownishFilledTextField"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/text_input_height"
-        android:layout_marginBottom="@dimen/margin_medium"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+        android:layout_marginBottom="@dimen/margin_small"
         >
 
         <com.google.android.material.textfield.TextInputEditText
