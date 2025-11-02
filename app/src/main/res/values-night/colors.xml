@@ -20,5 +20,7 @@
     <color name="toolbar_text_color">#B7A99A</color>
     <color name="toolbar_icon_color">#B7A99A</color>
 
+    <color name="list_item_measurement_color">#D0D0D0</color>
+
 
 </resources>
