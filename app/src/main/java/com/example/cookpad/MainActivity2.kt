@@ -73,6 +73,12 @@ class MainActivity2 : AppCompatActivity() {
         fab.hide()
 
         if (fragment is FabController) {
+            if (fragment is RecipesFragment) {
+                fab.setImageResource(R.drawable.ic_skillet)
+            } else {
+                fab.setImageResource(R.drawable.ic_add)
+            }
+
             if (fragment.showFab()) {
                 fab.show()
                 fragment.setupFab(fab)
