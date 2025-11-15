@@ -25,8 +25,8 @@
     <color name="dialog_button_text_color">@color/brown</color>
 
     <color name="toolbar_bg">@color/orange</color>
-    <color name="toolbar_text_color">@color/white</color>
-    <color name="toolbar_icon_color">@color/white</color>
+    <color name="toolbar_text_color">#4D4639</color>
+    <color name="toolbar_icon_color">#4D4639</color>
 
     <color name="searchview_background">#FFF3E0</color> <!-- light orange-tinted background -->
     <color name="searchview_text">#5D4037</color> <!-- brownish text -->

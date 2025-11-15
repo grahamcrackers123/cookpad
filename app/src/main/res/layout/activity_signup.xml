@@ -113,6 +113,7 @@
             android:layout_height="wrap_content"
             style="@style/BrownFilledTextField"
             app:errorEnabled="true"
+
             >
 
             <com.google.android.material.textfield.TextInputEditText

@@ -11,16 +11,20 @@
     </style>
 
     <style name="ThemeOverlay.IconToolbar" parent="">
-        <item name="iconTint">@color/white</item>
+        <item name="iconTint">@color/toolbar_icon_color</item>
     </style>
 
-    <style name="BrownFilledTextField" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+    <style name="BrownFilledTextField" parent="Widget.Material3.TextInputLayout.FilledBox">
         <item name="boxBackgroundColor">#EBE1D4</item>
         <item name="hintTextColor">#4D4639</item>
         <item name="boxStrokeColor">#4D4639</item>
         <item name="android:textColorHint">#804D4639</item>
-<!--        50% transparency for the hint-->
     </style>
+
+<!--    <style name="TextAppearance.App.BodyLarge" parent="TextAppearance.Material3.BodyLarge">-->
+<!--        <item name="android:textSize">18sp</item>-->
+<!--        <item name="android:textColor">#4D4639</item>-->
+<!--    </style>-->
 
     <style name="BrownButton" parent="Widget.Material3.Button">
         <item name="backgroundTint">#F2DDB8</item>

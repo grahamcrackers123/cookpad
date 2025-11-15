@@ -46,6 +46,7 @@
             android:layout_height="wrap_content"
             style="@style/BrownFilledTextField"
             app:errorEnabled="true"
+            android:hint="@string/email_address"
             >
 
             <com.google.android.material.textfield.TextInputEditText
@@ -78,6 +79,7 @@
             android:layout_height="wrap_content"
             style="@style/BrownFilledTextField"
             app:errorEnabled="true"
+            android:hint="@string/password"
             >
 
         <com.google.android.material.textfield.TextInputEditText
