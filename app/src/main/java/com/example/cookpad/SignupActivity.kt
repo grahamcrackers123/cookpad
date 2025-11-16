@@ -56,7 +56,7 @@ class SignupActivity : AppCompatActivity() {
                 passwordLayout.error = "Password must have at least one number"
                 isValid = false
             } else if (!password.any { it.isUpperCase() }) {
-                passwordLayout.error = "Password must have at leason one uppercase letter"
+                passwordLayout.error = "Password must have at least one uppercase letter"
                 isValid = false
             } else if (!password.any { !it.isLetterOrDigit() }) {
                 passwordLayout.error = "Password must contain at least one special character"
